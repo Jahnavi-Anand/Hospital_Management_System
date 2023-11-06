@@ -38,47 +38,56 @@ if (isset($_POST["login"])) {
 
 <head>
     <title>Admin Login Page</title>
-    <!-- Include Bootstrap CSS and JavaScript -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body style="background-image:url(img/pxfuel.jpg);">
+<body style="background-image: url('img/pxfuel.jpg'); background-size: cover;">
 
-    <div class="container mt-5">
+    <div class="container">
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="jumbotron">
-                    <img src="img/admin.png" class="img-fluid mb-3" alt="Admin Logo" width="30%">
-                    <form method="post">
-
-                        <div>
+            <div class="col-md-6 mt-5">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="text-center">Admin Login</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="img/admin.png" class="img-fluid rounded mx-auto d-block" width="100" alt="Admin Logo">
+                        <form method="post" class="mt-4">
+                            <div>
                             <?php
                             if (isset($error['admin'])) {
                                 $sh = $error['admin'];
-                                echo '<h4 class="alert alert-danger">' . $sh . '</h4>';
+                                $show = '<h4 class="alert alert-danger">'.$sh.'</h4>';
+
+                            } else {
+                                $show = "";
                             }
+
+                            echo $show;
                             ?>
-                        </div>
-                        <div class="mb-3">
-                            <label for="uname" class="form-label">Username</label>
-                            <input type="text" name="uname" id="uname" class="form-control" autocomplete="off"
-                                placeholder="Enter Username">
-                        </div>
-                        <div class="mb-3">
-                            <label for="pass" class="form-label">Password</label>
-                            <input type="password" name="pass" id="pass" class="form-control">
-                        </div>
+                            </div>
+                            <div class="form-group">
 
-                        <input type="submit" name="login" class="btn btn-success" value="Login">
-
-                    </form>
+                                <label for="uname">Username</label>
+                                <input type="text" id="uname" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Password</label>
+                                <input type="password" id="pass" name="pass" class="form-control">
+                            </div>
+                            <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="col-md-3"></div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
+
