@@ -10,7 +10,7 @@ session_start();
     <?php
     include("../include/header.php");
 
-    include("include/connection.php");
+    include("../include/connection.php");
     ?>
     <div class="container-fluid">
         <div class="col-md-12">
@@ -31,9 +31,14 @@ session_start();
                                     <div class="row">
                                         <div class="col-md-8">
                                             <!--php my sql 36:26-->
+                                            <?php
+                                            $ad = mysqli_query($connect,"SELECT * FROM admin");
+
+                                            $num =  mysqli_num_rows($ad);
+                                            ?>
 
                                             <h5 class="my-2 text white " 
-                                            style="font-size: 30px;">0</h5>
+                                            style="font-size: 30px;"><?php echo $num ?></h5>
                                             <h5 class="text white">Total</h5>
                                             <h5 class="text white">Admin</h5>
                                         </div>
