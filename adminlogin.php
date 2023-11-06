@@ -51,10 +51,11 @@ if (isset($_POST["login"])) {
                     <img src="img/admin.png" class="col-md-5">
                     <form method="post" class="my-2">
 
-                        <div class="alert alert-danger">
+                        <div>
                             <?php
                             if (isset($error['admin'])) {
-                                $show = $error['admin'];
+                                $sh = $error['admin'];
+                                $show = '<h4 class="alert alert-danger">$sh</h4>';
 
                             } else {
                                 $show = "";
