@@ -25,10 +25,6 @@
             <div class="mr-auto"></div>
 
             <ul class="navbar-nav">
-                <!-- <li class="nav-item"><a href="#" class="nav-link text-white">Admin</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white">Doctor</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white">Patient</a></li> -->
-                <!-- PHP-Admin Login 03 33:43 -->
                 <?php
                 if (isset($_SESSION['admin'])) {
                     $user=$_SESSION['admin'];

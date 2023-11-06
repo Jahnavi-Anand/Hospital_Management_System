@@ -1,4 +1,3 @@
-<!-- PHP-14:39 Admin Login 3 -->
 <?php
 session_start();    
 
@@ -43,8 +42,6 @@ if (isset($_POST["login"])) {
 
 <body style="background-image:url(img/pxfuel.jpg);">
 
-    <!-- PHP Admin login 03 Stamp- 1:24 -->
-
     <div style="margin-top:60px;"></div>
     <div class="container">
         <div class="col-md-12">
@@ -55,7 +52,6 @@ if (isset($_POST["login"])) {
                     <form method="post" class="my-2">
 
                         <div class="alert alert-danger">
-                            <!-- PHP Admin Login 3 25:50 -->
                             <?php
                             if (isset($error['admin'])) {
                                 $show = $error['admin'];
