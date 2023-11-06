@@ -52,3 +52,6 @@ Key Features and Components:
 - Enhanced user experience with a user-friendly interface.
 
 The Hospital Management System (HMS) project aims to enhance the overall efficiency of healthcare institutions, making it easier for hospital administrators and staff to provide quality patient care and streamline administrative tasks. This web-based system ensures that healthcare professionals can focus on what matters most – the health and well-being of their patients.
+
+admin user-id: admin
+passwd: admin
