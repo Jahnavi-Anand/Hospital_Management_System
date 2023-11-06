@@ -30,7 +30,6 @@ session_start();
                                  <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <!--php my sql 36:26-->
                                             <?php
                                             $ad = mysqli_query($connect,"SELECT * FROM admin");
 
