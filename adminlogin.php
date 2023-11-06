@@ -38,48 +38,45 @@ if (isset($_POST["login"])) {
 
 <head>
     <title>Admin Login Page</title>
+    <!-- Include Bootstrap CSS and JavaScript -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body style="background-image:url(img/pxfuel.jpg);">
 
-    <div style="margin-top:60px;"></div>
-    <div class="container">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6 jumbotron">
-                    <img src="img/admin.png" class="col-md-5">
-                    <form method="post" class="my-2">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="jumbotron">
+                    <img src="img/admin.png" class="img-fluid mb-3" alt="Admin Logo" width="30%">
+                    <form method="post">
 
                         <div>
                             <?php
                             if (isset($error['admin'])) {
                                 $sh = $error['admin'];
-                                $show = '<h4 class="alert alert-danger">$sh</h4>';
-
-                            } else {
-                                $show = "";
+                                echo '<h4 class="alert alert-danger">' . $sh . '</h4>';
                             }
-
-                            echo $show;
                             ?>
                         </div>
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" name="uname" class="form-control" autocomplete="off"
+                        <div class="mb-3">
+                            <label for="uname" class="form-label">Username</label>
+                            <input type="text" name="uname" id="uname" class="form-control" autocomplete="off"
                                 placeholder="Enter Username">
                         </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="pass" class="form-control">
+                        <div class="mb-3">
+                            <label for="pass" class="form-label">Password</label>
+                            <input type="password" name="pass" id="pass" class="form-control">
                         </div>
 
                         <input type="submit" name="login" class="btn btn-success" value="Login">
 
                     </form>
                 </div>
-                <div class="col-md-3"></div>
             </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
 </body>
