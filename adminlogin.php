@@ -38,24 +38,27 @@ if (isset($_POST["login"])) {
 
 <head>
     <title>Admin Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-<body style="background-image:url(img/pxfuel.jpg);">
+<body style="background-image: url('img/pxfuel.jpg'); background-size: cover;">
 
-    <div style="margin-top:60px;"></div>
     <div class="container">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6 jumbotron">
-                    <img src="img/admin.png" class="col-md-5">
-                    <form method="post" class="my-2">
-
-                        <div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 mt-5">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="text-center">Admin Login</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="img/admin.png" class="img-fluid rounded mx-auto d-block" width="100" alt="Admin Logo">
+                        <form method="post" class="mt-4">
+                            <div>
                             <?php
                             if (isset($error['admin'])) {
                                 $sh = $error['admin'];
-                                $show = '<h4 class="alert alert-danger">$sh</h4>';
+                                $show = '<h4 class="alert alert-danger">'.$sh.'</h4>';
 
                             } else {
                                 $show = "";
@@ -63,25 +66,28 @@ if (isset($_POST["login"])) {
 
                             echo $show;
                             ?>
-                        </div>
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" name="uname" class="form-control" autocomplete="off"
-                                placeholder="Enter Username">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="pass" class="form-control">
-                        </div>
+                            </div>
+                            <div class="form-group">
 
-                        <input type="submit" name="login" class="btn btn-success" value="Login">
-
-                    </form>
+                                <label for="uname">Username</label>
+                                <input type="text" id="uname" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Password</label>
+                                <input type="password" id="pass" name="pass" class="form-control">
+                            </div>
+                            <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-md-3"></div>
             </div>
+            <div class="col-md-3"></div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
+
