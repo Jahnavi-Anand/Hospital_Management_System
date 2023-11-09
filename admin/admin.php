@@ -55,12 +55,16 @@ include("../include/header.php");
                 <div class="col-md-6">
                     <?php
 
-                        // Kavya video 6 28:45
+                        // Kavya video 6 28:45, 46:14
 
 
+                        // Kavya video 6 39:35, 43:46
                      ?>
                     <h5 class="text-center">Add Admin</h5>
                     <form method="post" enctype="multipart/form-data">
+                        <div>
+                            <?php echo $show; ?>
+                        </div>
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="uname" class="form-control" autocomplete="off">                                                       
