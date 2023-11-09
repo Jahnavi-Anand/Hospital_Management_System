@@ -32,10 +32,8 @@ include("../include/header.php");
                         <h5 class="text-center">All Admin</h5>
 
                         <?php
-                        $ad = $_SESSION['admin'];
-                        $query ="SELECT * FROM admin WHERE username !='$ad'";
-                        $res = mysqli_query($connect,$query);
-                            // kavya video 6 15:32
+
+                        function render($res){
                             $output = "
                             <table class='table table-bordered'>
                             <tr>
@@ -44,36 +42,48 @@ include("../include/header.php");
                             <th style='width: 10%'>Action</th>
                             <tr>
                             ";
-                        if(mysqli_num_rows($res)<1){
-                            $output .= "<tr><td colspan='3' class='text-center'>No New Admin</td></tr>";
-                        }
-                        while($row = mysqli_fetch_array($res)){
-                            $id = $row['id'];
-                            $username= $row["username"];
-                            $output .="
-                            <tr>
-                                <td>$id</td>
-                                <td>$username</td>
-                                <td>
-                                    <a href='admin?id=$id'> <button id='$id' class='btn btn-danger remove'>
-                                    Remove</button></a>
-                                </td>
-                            
+                            if(mysqli_num_rows($res)<1){
+                                $output .= "<tr><td colspan='3' class='text-center'>No New Admin</td></tr>";
+                            }
+                            $i=1;
+                            while($row = mysqli_fetch_array($res)){
+                                $id = $row['id'];
+                                $username= $row["username"];
+                                $output .="
+                                <tr>
+                                    <td>$i</td>
+                                    <td>$username</td>
+                                    <td>
+                                        <a href='admin?id=$id'> <button id='$id' class='btn btn-danger remove'>
+                                        Remove</button></a>
+                                    </td>
+                                
+                                ";
+                                $i=$i+1;
+                            }
+                            $output .= "
+                            </tr>
+                            </table>
                             ";
+    
+                            echo $output;
+    
                         }
-                        $output .= "
-                        </tr>
-                        </table>
-                        ";
 
-                        echo $output;
-
+                        $ad = $_SESSION['admin'];
+                        $query ="SELECT * FROM admin WHERE username !='$ad'";
+                        $res = mysqli_query($connect,$query);
+                            // kavya video 6 15:32
+                            
+                            
+                        
 
                         if(isset($_GET['id'])){
                             $id = $_GET['id'];
                             $query = "DELETE FROM admin WHERE id='$id'";
                             mysqli_query($connect,$query);
                         }
+                        render($res);
                          ?>      
 
                 </div>
@@ -103,6 +113,7 @@ include("../include/header.php");
                                 move_uploaded_file($_FILES['img']['tmp_name'],"./img/$image");
                             }
                         }
+                        header("Location:./admin.php");
                     }
 
                     
