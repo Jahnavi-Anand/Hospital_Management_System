@@ -76,10 +76,6 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 $ad = $_SESSION['admin'];
                                 $query = "SELECT * FROM admin WHERE username !='$ad'";
                                 $res = mysqli_query($connect, $query);
-                                // kavya video 6 15:32
-                                
-
-
 
                                 if (isset($_GET['id'])) {
                                     $id = $_GET['id'];
@@ -127,14 +123,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 } else {
                                     $show = "";
                                 }
-
-                                // Kavya video 6 28:45, 46:14
-                                
-
-                                // Kavya video 6 39:35, 43:46
                                 ?>
-
-
 
                                 <h5 class="text-center">Add Admin</h5>
                                 <form method="post" enctype="multipart/form-data">
@@ -157,11 +146,6 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                     </div><br>
                                     <input type="submit" name="add" value="Add New Admin" class="btn btn-success">
                                 </form>
-
-
-
-
-
 
                             </div>
                         </div>
