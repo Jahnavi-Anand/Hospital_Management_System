@@ -1,3 +1,6 @@
+<!--- database setup at 23:35 in vid 8 
+(please don't forget to backspace this comment entry)-->
+
 <?php
 //timestamp: 32:30 in vid 8
 ?>
