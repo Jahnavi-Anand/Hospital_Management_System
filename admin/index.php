@@ -155,7 +155,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"]==false){
                         </div>
                     </div>
                 </div>
-            </div> <!-- Add the missing closing </div> for <div class="row"> here -->
+            </div> 
         </div>
     </div>
 </body>

@@ -24,7 +24,6 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"]==false){
                 $username = $row["username"];
                 $profiles = $row["profile"];
             }
-            //vid 7 8:22
         ?>
 
         <div class = 'container-fluid'>
@@ -59,7 +58,6 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"]==false){
                                                 }
                                             }
                                         }
-                                            //vid 7 16:39
                                         ?>
                                     <form method="post" enctype = "multipart/form-data">
                                         <?php
@@ -93,7 +91,6 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"]==false){
                                             }
                                         }
                                     }
-                                        //vid 7 26:07
                                     ?>
                                     <br>
                                     <form method = 'post' >
@@ -153,7 +150,6 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"]==false){
 
                                         $show = "";
                                     }
-                                        //vid 7 35:22
                                     ?>
 
                                     <form method = 'post' >
