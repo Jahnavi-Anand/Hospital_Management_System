@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title></title>
-    
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-    
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+
     <!-- Include Font Awesome CSS and JavaScript -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-info bg-info">
         <div class="d-flex justify-content-between align-items-center w-100">
             <h5 class="text-white">Hospital Management System</h5>
-            
+
             <div class="mr-auto"></div>
 
-            <ul class="navbar-nav"> 
-            <?php
+            <ul class="navbar-nav">
+                <?php
                 if (isset($_SESSION['admin'])) {
                     $user = $_SESSION['admin'];
                     echo '
@@ -28,7 +33,7 @@
                     ';
                 }
                 // else if(){
-                    //timestamp: 0:42 in vid 9
+                //timestamp: 0:42 in vid 9
                 // } 
                 else {
                     echo '
@@ -43,4 +48,5 @@
         </div>
     </nav>
 </body>
+
 </html>
