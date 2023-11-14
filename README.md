@@ -68,11 +68,31 @@ Key Features and Components:
 - Bootstrap for responsive and visually appealing design.
 - Session management for user login and data security.
 
-## Benefits:
+## 10. Benefits:
 - Streamlined hospital management.
 - Efficient patient registration and record management.
 - Simplified employment application process.
 - Improved communication and collaboration among healthcare professionals.
 - Enhanced user experience with a user-friendly interface.
+
+## 9. Doctor Registration and Login:
+   - The HMS now includes a dedicated registration and login feature for doctors, enabling them to apply for job positions within the hospital.
+   - Once registered, doctors can log in to access patient information, medical records, and prescribe medications, contributing to a more efficient and integrated healthcare workflow.
+
+## 10. Doctor Dashboard:
+   - Doctors, upon logging in, are greeted with a personalized dashboard providing quick access to patient details, medical history, and the ability to prescribe medications.
+   - This feature enhances the collaboration between medical professionals and ensures timely and accurate patient care.
+
+## 11. Patient Medical Status and Reports:
+   - Patients can now log in to the system to access their medical status, including current diagnoses, treatment plans, and test results.
+   - The system also enables patients to view and download their medical reports, fostering transparency and empowering patients to actively participate in their healthcare journey.
+
+## 12. Admin Access to Doctor Information:
+   - Administrators have the capability to access and manage doctor information, including their profiles, qualifications, and work history.
+   - This feature assists in effective staff management, ensuring that the hospital maintains a qualified and competent medical team.
+
+## 13. Report Generation:
+   - The admin panel now includes a robust report generation feature, allowing administrators to generate comprehensive reports on various aspects, such as patient statistics, staff performance, and overall hospital operations.
+   - This aids in data-driven decision-making and facilitates the continuous improvement of healthcare services.
 
 The Hospital Management System (HMS) project aims to enhance the overall efficiency of healthcare institutions, making it easier for hospital administrators and staff to provide quality patient care and streamline administrative tasks. This web-based system ensures that healthcare professionals can focus on what matters most – the health and well-being of their patients.
