@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["admin"]) && $_SESSION["admin"]==false){
+    header("Location:../adminlogin.php");
+    exit();
+}
+?>
+
 <!DOCTYPE>
 <html>
     <head>
@@ -6,75 +14,169 @@
     <body>
         <?php
             include("../include/header.php");
-            include("../include/connection.php")
+            include("../include/connection.php");
+            $ad = $_SESSION['admin'];
+
+            $query = "SELECT * FROM admin WHERE username='$ad'";
+            $result = mysqli_query($connect, $query);
+
+            while ($row = mysqli_fetch_array($result)) {
+                $username = $row["username"];
+                $profiles = $row["profile"];
+            }
             //vid 7 8:22
         ?>
 
-        <div class = container-fluid>
-            <div class = col-mid-12>
-                <div class = row>
-                    <div class = col-md-2 style = "margin-left: -30px">
+        <div class = 'container-fluid'>
+            <div class = 'col-md-12'>
+                <div class = "row">
+                    <div class = 'col-md-2' style = "margin-Left: -30px;">
                     <?php
-                    include("sidenave.php");
+                    include("./sidenave.php");
                     ?>
                     </div>
-                    <div class = col-md-10>
-                        <div class = col-mid-12>
-                            <div class = row>
-                                <div class = col-mid-6>
-                                    <h4><?php echo $username; ?> Profile</h4>
+                    <div class = 'col-md-10'>
+                        <div class = 'col-md-12'>
+                            <div class = 'row'>
+                                <div class = 'col-md-6'>
+                                    <h4><?php echo $username; ?>'s Profile</h4>
                                         <?php
+                                        if(isset($_POST['update'])){
+
+                                            $profile = $_FILES['profile']['name'];
+
+                                            if(empty($profile)){
+
+                                            }
+                                            else{
+                                                $query = "UPDATE admin SET profile='$profile' WHERE username='$ad'";
+
+                                                $result= mysqli_query($connect, $query);
+
+                                                if($result){
+                                                    move_uploaded_file($_FILES['profile']['tmp_name'],"img/$profile");
+                                                    header("Location:./profile.php");
+                                                }
+                                            }
+                                        }
                                             //vid 7 16:39
                                         ?>
-                                    <form method = post ecntype = "mulitpart/formdata">
+                                    <form method="post" enctype = "multipart/form-data">
                                         <?php
-                                            echo "<img src = 'img/$profiles' class = 'col-md-12' style = 'height: 200px;'>"
+                                            echo "<img src='img/$profiles' class='col-md-12' style = 'height: 250px; width: auto;'>"
                                         ?>
 
-                                        <br><bt>
-                                        <div class = form-group>
-                                            <label>UPDATE PROFILE</label>
-                                            <input type = file name = profile class = from-control>
+                                        <br><br>
+                                        <div class = 'form-group'>
+                                            <label>UPDATE PROFILE PHOTO</label>
+                                            <input type="file" name="profile" class = 'form-control'>
                                         </div>
                                         <br>
-                                        <input type = submit name = update value = UPDATE class = "btn btn-success">
+                                        <input type = "submit" name="update" value = 'UPDATE' class = "btn btn-success">
                                     </form>
                                 </div>
-                                <div class = col-mid-6>
+                                <div class = 'col-md-6'>
                                     <?php
+                                    if(isset($_POST["change"])){
+
+                                        $uname=$_POST['uname'];
+                                        if(empty($uname)){
+
+                                        }
+                                        else{
+                                            $query = "UPDATE admin SET username='$uname' WHERE username='$ad'";
+                                            $res= mysqli_query($connect, $query);
+
+                                            if($res){
+                                                $_SESSION["admin"] = $uname;
+                                                header("Location:./profile.php");
+                                            }
+                                        }
+                                    }
                                         //vid 7 26:07
                                     ?>
-                                    <form method = post >
+                                    <br>
+                                    <form method = 'post' >
                                         <label>Change Username</label>
-                                        <input type = text name = uname class = form-control autocomplete = off><br>
-                                        <input type = submit name = change class = "btn btn-success">
+                                        <input type = 'text' name = 'uname' class = 'form-control' autocomplete = 'off'><br>
+                                        <input type = 'submit' name = 'change' class = "btn btn-success" value="change">
                                     </form>
 
                                     <br>
                                     <?php
+                                    if(isset($_POST["update_pass"])){
+                                        $old_pass = $_POST['old_pass'];
+                                        $new_pass = $_POST['new_pass'];
+                                        $con_pass = $_POST['con_pass'];
+
+                                        $error = array();
+
+                                        $old = mysqli_query($connect,"SELECT * FROM admin WHERE username='$ad'");
+                                        $row = mysqli_fetch_array($old);
+                                        $pass = $row['password'];
+
+                                        if(empty($old_pass)){
+                                            $error['p'] = 'Enter old password';
+                                        }
+                                        else if(empty($new_pass)){
+                                            $error['p'] = 'Enter new password';
+                                        }
+                                        else if(empty($con_pass)){
+                                            $error['p'] = 'Confirm password';
+                                        }
+                                        else if($old_pass != $pass){
+                                            $error['p']="Invalid Old Password";
+                                        }
+                                        else if($new_pass != $con_pass){
+                                            $error["p"]= "Both password doesn't match";
+                                        }
+
+
+                                            if(count($error) == 0){
+                                                $query = "UPDATE admin SET password='$new_pass' WHERE username='$ad'";
+
+                                                mysqli_query($connect, $query);
+                                                header("Location:./profile.php");
+                                            }
+
+                                            
+                                        }
+              
+                                    
+                                    if(isset($error['p'])){
+
+                                        $e = $error['p'];
+
+                                        $show = "<h5 class= 'text-center alert alert-danger'>$e</h5>";
+                                    }
+                                    else{
+
+                                        $show = "";
+                                    }
                                         //vid 7 35:22
                                     ?>
 
-                                    <form method = post >
+                                    <form method = 'post' >
                                         <h5 class = "text-center my-4">Change Password</h5>
                                         <div>
                                             <?php
                                                 echo $show;
                                             ?>
                                         </div>
-                                        <div class = form-group>
+                                        <div class = 'form-group'>
                                             <label>Old Password</label>
-                                            <input type="password" name = old_pass class = form-control>
+                                            <input type="password" name = 'old_pass' class = 'form-control'>
                                         </div>
-                                        <div class = form-group>
+                                        <div class = 'form-group'>
                                             <label>New Password</label>
-                                            <input type = password name = new_pass class = form-control>
+                                            <input type = 'password' name = 'new_pass' class = 'form-control'>
                                         </div>
-                                        <div class = form-control>
-                                            <label>Confirm</label>
-                                            <input type="password" name = con-pass class = form-control>
+                                        <div class = 'form-group'>
+                                            <label>Confirm Password</label>
+                                            <input type="password" name = 'con_pass' class = 'form-control'>
                                         </div>
-                                        <input type="submit" name = update_pass value = "Update Password" class = "btn btn-info">
+                                        <br>
+                                        <input type="submit" name = 'update_pass' value = "Update Password" class="btn btn-info">
                                     </form>
                                 </div>
                             </div>
