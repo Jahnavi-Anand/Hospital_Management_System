@@ -9,21 +9,11 @@ if (isset($_POST["login"])) {
 
     $error = array();
 
-    // $q= "SELECT * FROM doctors WHERE username='$uname' AND password='$password'";
-    // $qq=mysqli_query($connect, $q);
-
-    // $row = mysqli_fetch_array($qq);
-
     if(empty($uname)){
         $error['login'] = "Enter Username";
     }else if (empty($password)){
         $error["login"] = "Enter Password";
     }
-    // else if($row['status'] == "Pending"){
-    //     $error["login"] = "Please Wait for the Admin to Confirm";
-    // }else if($row["status"] == "Rejected"){
-    //     $error["login"] = "Your Application has been Rejected";
-    // }
 
     if(count($error) == 0){
 
@@ -36,9 +26,6 @@ if (isset($_POST["login"])) {
 
         $row = mysqli_fetch_array($qq);
 
-        // $err = array();
-
-        // if(count($err) == 0){
         if(mysqli_num_rows($res)){
 
 
@@ -71,7 +58,6 @@ if(isset($error['login'])){
 }else{
     $show = "";
 }
-//timestamp: 1:00:55 in vid 8
 ?>
 
 

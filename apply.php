@@ -1,6 +1,3 @@
-<!--- database setup at 23:35 in vid 8 
-(please don't forget to backspace this comment entry)-->
-
 <?php
 
 include("include/connection.php");
@@ -63,7 +60,6 @@ if(isset($error["apply"])){
 }else{
     $show = "";
 }
-//timestamp: 32:30 in vid 8
 ?>
 
 
@@ -104,7 +100,6 @@ if(isset($error["apply"])){
                     <div>        
                     <?php 
                     echo $show;
-                    //imestamp: 43:55 in vid 8
                     ?>
                     </div>
                         <div class="form-group">

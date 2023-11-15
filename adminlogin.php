@@ -1,5 +1,3 @@
-<!--- database setup at 23:35 in vid 8 
-(please don't forget to backspace this comment entry)-->
 <?php
 session_start();    
 
