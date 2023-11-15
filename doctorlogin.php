@@ -72,6 +72,10 @@ if (isset($error['login'])) {
 
 <body style="background-image: url(img/pxfuel.jpg);background-size: cover; background-repeat:no-repeat;">
 
+    <?php
+    include("./include/header.php");
+    ?>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>

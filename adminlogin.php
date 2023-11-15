@@ -40,6 +40,10 @@ if (isset($_POST["login"])) {
 
 <body style="background-image: url('img/pxfuel.jpg'); background-size: cover;">
 
+    <?php
+    include("./include/header.php");
+    ?>
+
     <div class="container">
         <div class="row">
             <div class="col-md-3"></div>
