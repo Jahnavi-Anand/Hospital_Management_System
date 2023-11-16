@@ -1,5 +1,5 @@
 <?php
-session_start();    
+session_start();
 
 include("include/connection.php");
 
@@ -29,9 +29,6 @@ if (isset($_POST["login"])) {
         }
     }
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,6 +39,10 @@ if (isset($_POST["login"])) {
 </head>
 
 <body style="background-image: url('img/pxfuel.jpg'); background-size: cover;">
+
+    <?php
+    include("./include/header.php");
+    ?>
 
     <div class="container">
         <div class="row">
@@ -55,26 +56,28 @@ if (isset($_POST["login"])) {
                         <img src="img/admin.png" class="img-fluid rounded mx-auto d-block" width="100" alt="Admin Logo">
                         <form method="post" class="mt-4">
                             <div>
-                            <?php
-                            if (isset($error['admin'])) {
-                                $sh = $error['admin'];
-                                $show = '<h4 class="alert alert-danger">'.$sh.'</h4>';
+                                <?php
+                                if (isset($error['admin'])) {
+                                    $sh = $error['admin'];
+                                    $show = '<h4 class="alert alert-danger">' . $sh . '</h4>';
 
-                            } else {
-                                $show = "";
-                            }
+                                } else {
+                                    $show = "";
+                                }
 
-                            echo $show;
-                            ?>
+                                echo $show;
+                                ?>
                             </div>
                             <div class="form-group">
 
                                 <label for="uname">Username</label>
-                                <input type="text" id="uname" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
+                                <input type="text" id="uname" name="uname" class="form-control" autocomplete="off"
+                                    placeholder="Enter Username">
                             </div>
                             <div class="form-group">
                                 <label for="pass">Password</label>
-                                <input type="password" id="pass" name="pass" class="form-control">
+                                <input type="password" id="pass" name="pass" class="form-control"
+                                    placeholder="Enter Password">
                             </div>
                             <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
                         </form>
@@ -90,4 +93,3 @@ if (isset($_POST["login"])) {
 </body>
 
 </html>
-
