@@ -6,7 +6,7 @@
 
 <head>
 
-    <title>Doctor 's  Dashboard</title>
+    <title>Doctor's  Dashboard</title>
 
 </head>
 
