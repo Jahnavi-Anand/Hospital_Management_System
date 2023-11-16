@@ -37,7 +37,6 @@
                     <li class="nav-item"><a href="#" class="nav-link text-white">' . $user . '</a></li>
                     <li class="nav-item"><a href="logout.php" class="nav-link text-white">logout</a></li>
                     ';
-                    // timestamp: 0:42 in vid 9
                 } else {
                     echo '
                     <li class="nav-item"><a href="index.php" class="nav-link text-white">Home</a></li> 

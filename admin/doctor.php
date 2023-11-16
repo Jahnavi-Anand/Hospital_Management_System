@@ -26,7 +26,7 @@ session_start();
                 <div class="col-md-2" style="margin-left: -30px;">
 
                     <?php
-                        include("sidenave.php");
+                        include("./sidenave.php");
                     ?>
 
                 </div>
@@ -38,11 +38,73 @@ session_start();
                         $query = "SELECT * FROM doctors WHERE  status ='APPROVED' ORDER BY data_reg ASC";
                         $res= mysqli_query($connect,$query);
 
+
+                        $output = "";
+
+$output .="
+<table class='table table-bordered'>
+<tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Surname</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Phone</th>
+    <th>Country</th>
+    <th>Salary</th>
+    <th>Registration Date</th>
+    <th>Action</th>
+</tr>
+";
+
+if (mysqli_num_rows($res) < 1){
+    $output .= "
+    <tr>
+
+    <td colspan='15' class='text-center'>NO JOB REQUEST YET</td>
+    
+    </tr>
+    ";
+}
+
+
+while ($row = mysqli_fetch_assoc($res)){
+
+    $output .="
+    <tr>
+    <td>".$row['id']."</td>    
+    <td>".$row['firstname']."</td>
+    <td>".$row['surname']."</td>
+    <td>".$row['username']."</td>
+    <td>".$row['email']."</td>
+    <td>".$row['gender']."</td>
+    <td>".$row['phone']."</td>
+    <td>".$row['country']."</td>
+    <td>".$row['salary']."</td>
+    <td>".$row['data_reg']."</td>
+    <td>
+    <a href ='edit.php?id=".$row['id']."'>
+    <button class='btn btn-info'>Edit</button>
+</a>
+    </td>
+    
+    ";
+}
+
+
+
+$output.="
+    </tr>
+    </table>
+";
+
+echo $output;
+
+
                         //ajax_job_request.php part to be copy pasted here and swap the underlying with the last portion inside <td></td>
                         // <td>
-                        //     <a href ="">
-                        //         <button class="btn btn-info">Edit</button>
-                        //     </a>
+                            
                         // </td>
                         //Add a salary field 52:05 Vid 10
                         //You need to watch the video from 47:43 comments wont help much
