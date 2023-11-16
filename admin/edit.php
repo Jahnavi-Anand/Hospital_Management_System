@@ -1,6 +1,10 @@
 
 <?php
 session_start();
+if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
+    header("Location:../adminlogin.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +69,14 @@ session_start();
 
                                             $q="UPDATE doctors SET salary='$salary' WHERE id='$id'";
 
-                                            mysqli_query($connect,$q);
+                                            $result = mysqli_query($connect,$q);
+                                            // if($result){
+                                            //     unset($row);
+                                            //     unset($$_POST['update']);
+                                            //     header("Location:./edit.php");
+                                            //     exit();
+                                            // }
+                                            
                                         }
                                         // Vid 10 1:09:06
 
