@@ -61,12 +61,17 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <h5 class="my-2 text white " style="font-size: 30px;">0</h5>
+                                            <?php
+                                                // Vid 10 39:00
+                                            ?>
+                                            <h5 class="my-2 text white " style="font-size: 30px;"><?php 
+                                                // Vid 10 40:22 
+                                            ?></h5>
                                             <h5 class="text white">Total</h5>
                                             <h5 class="text white">Doctors</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#"><i class="fa fa-user-md fa-3x my-4" style="color:white"></i></a>
+                                            <a href="doctor.php"><i class="fa fa-user-md fa-3x my-4" style="color:white"></i></a>
                                         </div>
 
                                     </div>
