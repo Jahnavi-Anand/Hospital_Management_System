@@ -106,7 +106,7 @@ if (isset($error['login'])) {
                                         echo $_POST['pass']; ?>">
                             </div>
                             <input type="submit" name="login" class="btn btn-primary btn-block" value="Login">
-                            <br>
+                            <br><br>
                             <p>I don't have an account<a href="./apply.php"> Apply Here</a></p>
                         </form>
                     </div>
