@@ -148,8 +148,7 @@ if (isset($error["apply"])) {
                                     <select name="country" class="form-control">
                                         <option value="" selected disabled>--Select Country--</option>
                                         <option value="india">India</option>
-                                        <option value="nepal">Nepal</option>
-                                        <option value="bhutan">Bhutan</option>
+                                        <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
