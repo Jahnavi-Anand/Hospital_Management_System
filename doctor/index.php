@@ -1,11 +1,5 @@
- <!--php part 6:58 -->
-<?php
-session_start();
-
-if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
-    header("Location:../adminlogin.php");
-    exit();
-}
+ <?php
+//php part 48:18
 ?>
 
 <!DOCTYPE html>

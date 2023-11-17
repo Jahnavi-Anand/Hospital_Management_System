@@ -31,7 +31,7 @@ include("include/header.php");
 
                     <h5 class="text-centre">Create Account so that we can take good care of YOU.</h5>
 
-                    <a href="#">
+                    <a href="account.php">
                         <button class="btn btn-success my-3" style="margin-Left: 30%;">Create Account</button>
                     </a>
 
