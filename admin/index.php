@@ -62,10 +62,15 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                     <div class="row">
                                         <div class="col-md-8">
                                             <?php
+
+                                                $doctor = mysqli_query($connect,"SELECT * FROM doctors WHERE status='APPROVED'");
+
+                                                $num2 = mysqli_num_rows($doctor);
                                                 // Vid 10 39:00
                                             ?>
                                             <h5 class="my-2 text white " style="font-size: 30px;"><?php 
                                                 // Vid 10 40:22 
+                                                echo $num2;
                                             ?></h5>
                                             <h5 class="text white">Total</h5>
                                             <h5 class="text white">Doctors</h5>

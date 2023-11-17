@@ -1,5 +1,7 @@
 <?php
 
+session_start();    
+
 include("./include/connection.php");
 
 if (isset($_POST["login"])) {
@@ -39,8 +41,8 @@ if (isset($_POST["login"])) {
             if (count($error) == 0) {
 
                 echo "<script> alert('Done')</script>";
-                $_SESSION["doctors"] = "$uname";
-                // header("Location: ");
+                $_SESSION["doctor"] = "$uname";
+                header("Location:./doctor/index.php");
 
             }
 
