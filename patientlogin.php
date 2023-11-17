@@ -1,7 +1,6 @@
-<!-- Database setup at 30:10 in vid 13-->
 <?php
 
-session_start();    
+session_start();
 
 include("./include/connection.php");
 
@@ -24,7 +23,7 @@ if (isset($_POST["login"])) {
 
         $res = mysqli_query($connect, $query);
 
-    
+
 
         $row = mysqli_fetch_array($res);
 
@@ -34,7 +33,7 @@ if (isset($_POST["login"])) {
             $_SESSION["patient"] = "$uname";
             header("Location:./patient/index.php");
 
-            
+
 
         } else {
             echo "<script> alert('Invalid Username/Password')</script>";
@@ -49,22 +48,23 @@ if (isset($error['login'])) {
 } else {
     $show = "";
 }
-//timestamp: 41:50 vid 13
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Login Page</title>
 </head>
-<body style="background-image: url(img/pxfuel.jpg);background-size: cover; background-repeat:no-repeat;">
-<?php
-    include("./include/header.php");
-?>
 
-<div class="container-fluid">
+<body style="background-image: url(img/pxfuel.jpg);background-size: cover; background-repeat:no-repeat;">
+    <?php
+    include("./include/header.php");
+    ?>
+
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 mt-5">
@@ -76,11 +76,11 @@ if (isset($error['login'])) {
                         <img src="img/patient.png" class="img-fluid rounded mx-auto d-block" width="100"
                             alt="Patient Logo">
                         <form method="post" class="mt-4">
-                        <div>
-                                    <?php
-                                    echo $show;
-                                    ?>
-                                </div>
+                            <div>
+                                <?php
+                                echo $show;
+                                ?>
+                            </div>
                             <div class="form-group">
                                 <label for="uname">Username</label>
                                 <input type="text" id="uname" name="uname" class="form-control" autocomplete="off"
@@ -106,4 +106,5 @@ if (isset($error['login'])) {
     </div>
 
 </body>
+
 </html>

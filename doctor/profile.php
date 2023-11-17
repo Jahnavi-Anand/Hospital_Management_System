@@ -4,8 +4,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
     header("Location:../doctorlogin.php");
     exit();
 }
-// error_reporting(0);
-// <!--1:22 php part (video 12)-->
 ?>
 <!DOCTYPE html>
 
@@ -33,7 +31,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                 </div>
                 <div class="col-md-10">
 
-                    <!--3:10 php -->
                     <div class="container-fluid">
                         <div class="col-md-12">
                             <div class="row">
@@ -67,8 +64,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                 }
                                 ?>
 
-                                    <!--11:40 php part (video 12)-->
-                                      <!-- 25:19 php part (video 12)-->
                                     <form method="post" enctype="multipart/form-data">
 
                                     <?php
@@ -76,9 +71,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                         echo "<img src='img/". $row['profile']."' style='height: 250px;' class='col-md-12 my-3'>";
                                     ?>
 
-                                        <!--// 15:50 php part (video 12)-->
-                                        <!--echo "<img src='img/" . $row['docto.jpg'] . "' style='height: 250px;'>";-->
-                                        <!-- 17:44 php part (video 12)-->
                                           
                                         <input type="file" name="img" class="form-control my-1">
                                         <input type="submit" name="upload" class="
@@ -94,7 +86,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                             <tr>
                                                 <td>Firstname</td>
                                                 <td><?php echo $row['firstname']; ?></td>
-                                                <!--php part 21:13 (video12)-->
 
                                             </tr>
                                             <tr>
@@ -136,7 +127,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                             <tr>
                                                 <td>Salary</td>
                                                 <td><?php echo  "Rs ".$row['salary'].""; ?></td>
-                                                <!--php part 24:08 (video12)-->
 
                                             </tr>
 
@@ -177,7 +167,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                         }
                                     }
                                     ?>
-                                    <!--php part 29:12 (video12)-->
                                     <form method="post">
                                         <label>
                                             Change username
@@ -221,7 +210,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                     }
 
                                     ?>
-                                    <!--php part 31:37 (video11)-->
                                     <form method="post">
                                         <div class="form-group">
                                             <label>Old Password</label>

@@ -1,4 +1,3 @@
-<!-- Database setup at 30:10 in vid 13-->
 <?php
 
 include("./include/connection.php");
@@ -65,6 +64,7 @@ if (isset($error["ac"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,11 +78,12 @@ if (isset($error["ac"])) {
         }
     </style>
 </head>
+
 <body style="background-image: url(img/pxfuel.jpg);background-size: cover; background-repeat:no-repeat;">
-<?php
+    <?php
     include("./include/header.php");
-?>
-<div class="container-fluid">
+    ?>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 mt-5">
@@ -152,7 +153,8 @@ if (isset($error["ac"])) {
                                     <input type="password" name="con_pass" class="form-content" autocomplete="off"
                                         placeholder="Enter Confirm Password">
                                 </div>
-                                <input type="submit" name="create" class="btn btn-primary btn-block" value="Create Account">
+                                <input type="submit" name="create" class="btn btn-primary btn-block"
+                                    value="Create Account">
                                 <p><br>I already have an account <a href="./patientlogin.php">Click Here</a></p>
                             </form>
                         </div>
@@ -163,8 +165,9 @@ if (isset($error["ac"])) {
         </div>
     </div>
     </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
     </div>
 </body>
+
 </html>

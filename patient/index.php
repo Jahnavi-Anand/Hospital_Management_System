@@ -1,4 +1,4 @@
- <?php
+<?php
 session_start();
 
 if (!isset($_SESSION["patient"]) && $_SESSION["patient"] == false) {
@@ -34,7 +34,7 @@ if (!isset($_SESSION["patient"]) && $_SESSION["patient"] == false) {
 
                     <div class="container-fluid">
                         <h5>
-                           Patient Dashboard 
+                            Patient Dashboard
                         </h5>
                         <div class="col-md-12">
                             <div class="row">
@@ -50,7 +50,7 @@ if (!isset($_SESSION["patient"]) && $_SESSION["patient"] == false) {
 
                                         </div>
 
-                                    </div>  
+                                    </div>
 
                                 </div>
                             </div>
