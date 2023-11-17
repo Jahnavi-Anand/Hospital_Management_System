@@ -132,7 +132,7 @@
 
                                     </form>
                                     <br><br>
-                                    <h5 class="text-center my-2">Change Pasword
+                                    <h5 class="text-center my-2">Change Password
 
                                     </h5>
                                     <!--php part 31:37 (video11)-->
@@ -140,19 +140,19 @@
                                         <div class="form-group">
                                             <label>Old Password</label>
                                             <input type="password" name="old_pass" class="form-control"
-                                                autocomplete="off" placeholder="Enter Old Pawword">
+                                                autocomplete="off" placeholder="Enter Old Password">
 
                                         </div>
                                         <div class="form-group">
                                             <label>New Password</label>
                                             <input type="password" name="new_pass" class="form-control"
-                                                autocomplete="off" placeholder="Enter New Pawword">
+                                                autocomplete="off" placeholder="Enter New Password">
 
                                         </div>
                                         <div class="form-group">
                                             <label>Confirm Password</label>
                                             <input type="password" name="con_pass" class="form-control"
-                                                autocomplete="off" placeholder="Enter Confirm Pawword">
+                                                autocomplete="off" placeholder="Enter Confirm Password">
 
                                         </div>
                                         <input type="submit" name="change_pass" class="
