@@ -28,12 +28,12 @@ if (isset($_POST["apply"])) {
         $error["apply"] = "Select Gender";
     } else if (empty($phone)) {
         $error["apply"] = "Enter Phone Number";
-    } else if (empty($country)) {
+    } else if ($country == "") {
         $error["apply"] = "Select Country";
     } else if (empty($password)) {
         $error["apply"] = "Enter Password";
     } else if ($confirm_password != $password) {
-        $error["apply"] = "Confirm Password";
+        $error["apply"] = "Confirm Password doesn't match";
     }
 
     if (count($error) == 0) {
@@ -133,8 +133,8 @@ if (isset($error["apply"])) {
                                     <select name="gender" class="form-control">
                                         <option value="" selected disabled>--Select Gender--</option>
                                         <option value="male">Male</option>
-                                        <option value="male">Female</option>
-                                        <option value="male">Other</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

@@ -1,5 +1,54 @@
 <!-- Database setup at 30:10 in vid 13-->
 <?php
+
+session_start();    
+
+include("./include/connection.php");
+
+if (isset($_POST["login"])) {
+
+    $uname = $_POST["uname"];
+    $pass = $_POST["pass"];
+
+    $error = array();
+
+    if (empty($uname)) {
+        $error['login'] = "Enter Username";
+    } else if (empty($pass)) {
+        $error["login"] = "Enter Password";
+    }
+
+    if (count($error) == 0) {
+
+        $query = "SELECT * FROM patient WHERE username='$uname' AND password='$pass'";
+
+        $res = mysqli_query($connect, $query);
+
+    
+
+        $row = mysqli_fetch_array($res);
+
+        if (mysqli_num_rows($res)) {
+
+            echo "<script> alert('Done')</script>";
+            $_SESSION["patient"] = "$uname";
+            header("Location:./patient/index.php");
+
+            
+
+        } else {
+            echo "<script> alert('Invalid Username/Password')</script>";
+        }
+    }
+}
+
+if (isset($error['login'])) {
+    $l = $error['login'];
+
+    $show = "<h5 class= 'text-center alert alert-danger'>$l</h5>";
+} else {
+    $show = "";
+}
 //timestamp: 41:50 vid 13
 ?>
 
@@ -27,6 +76,11 @@
                         <img src="img/patient.png" class="img-fluid rounded mx-auto d-block" width="100"
                             alt="Patient Logo">
                         <form method="post" class="mt-4">
+                        <div>
+                                    <?php
+                                    echo $show;
+                                    ?>
+                                </div>
                             <div class="form-group">
                                 <label for="uname">Username</label>
                                 <input type="text" id="uname" name="uname" class="form-control" autocomplete="off"

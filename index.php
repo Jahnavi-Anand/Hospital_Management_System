@@ -41,7 +41,7 @@ include("include/header.php");
 
                     <h5 class="text-centre">Employment Applications OPEN</h5>
 
-                    <a href="#">
+                    <a href="./apply.php">
                         <button class="btn btn-success my-3" style="margin-Left: 30%;">Apply Now!!!</button>
                     </a>
 

@@ -1,5 +1,65 @@
 <!-- Database setup at 30:10 in vid 13-->
 <?php
+
+include("./include/connection.php");
+
+if (isset($_POST["create"])) {
+    $fname = $_POST["fname"];
+    $sname = $_POST["sname"];
+    $uname = $_POST["uname"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $gender = $_POST["gender"];
+    $country = $_POST["country"];
+    $password = $_POST["pass"];
+    $con_password = $_POST["con_pass"];
+
+    $error = array();
+
+    if (empty($fname)) {
+        $error['ac'] = "Enter Firstname";
+    } else if (empty($sname)) {
+        $error["ac"] = "Enter Surname";
+    } else if (empty($uname)) {
+        $error["ac"] = "Enter Username";
+    } else if (empty($email)) {
+        $error["ac"] = "Enter Email";
+    } else if ($gender == "") {
+        $error["ac"] = "Select Gender";
+    } else if (empty($phone)) {
+        $error["ac"] = "Enter Phone Number";
+    } else if ($country == "") {
+        $error["ac"] = "Select Country";
+    } else if (empty($password)) {
+        $error["ac"] = "Enter Password";
+    } else if ($con_password != $password) {
+        $error["ac"] = "Confirm Password doesn't match";
+    }
+
+    if (count($error) == 0) {
+
+        $query = "INSERT INTO patient(firstname,surname,username,email,phone,gender,country,password,date_reg,profile) VALUES('$fname','$sname','$uname','$email','$phone','$gender','$country','$password',NOW(),'patient.jpeg')";
+
+        $res = mysqli_query($connect, $query);
+
+        if ($res) {
+            echo "<script>alert('You have Successfully SignUp')</script>";
+
+            header("Location: ./patientlogin.php");
+        } else {
+            echo "<script>alert('Failed to SignUp')</script>";
+
+        }
+    }
+}
+
+if (isset($error["ac"])) {
+    $s = $error["ac"];
+
+    $show = "<h5 class='text-center alet alert-danger'>$s</h5>";
+} else {
+    $show = "";
+}
 //timestamp: 22:35 in vid 13
 ?>
 
@@ -35,6 +95,11 @@
                             <img src="img/patient.png" class="img-fluid rounded mx-auto d-block" width="100"
                                 alt="Patient Logo">
                             <form method="post" class="mt-4">
+                                <div>
+                                    <?php
+                                    echo $show;
+                                    ?>
+                                </div>
                                 <div class="form-group">
                                     <label>Firstname</label>
                                     <input type="text" name="fname" class="form-control" autocomplete="off"
@@ -60,8 +125,8 @@
                                     <select name="gender" class="form-control">
                                         <option value="" selected disabled>--Select Gender--</option>
                                         <option value="male">Male</option>
-                                        <option value="male">Female</option>
-                                        <option value="male">Other</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -87,7 +152,7 @@
                                     <input type="password" name="con_pass" class="form-content" autocomplete="off"
                                         placeholder="Enter Confirm Password">
                                 </div>
-                                <input type="submit" name="Create" class="btn btn-primary btn-block" value="Create">
+                                <input type="submit" name="create" class="btn btn-primary btn-block" value="Create Account">
                                 <p><br>I already have an account <a href="./patientlogin.php">Click Here</a></p>
                             </form>
                         </div>
