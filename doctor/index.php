@@ -11,8 +11,11 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
 <html>
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Doctor's Dashboard</title>
+    <link rel="stylesheet" href="your_stylesheet.css"> <!-- Include your custom stylesheet here -->
 
 </head>
 
