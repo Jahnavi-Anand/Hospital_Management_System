@@ -1,10 +1,3 @@
-<?php
-if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
-    header("Location:../adminlogin.php");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +7,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
 
 <body>
 
+    <!-- Side Navigation -->
     <div class="list-group list-group-item-action bg-info" style="height: 90vh;">
 
         <a href="index.php" class="list-group-item list-group-item-action 
@@ -21,13 +15,14 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
         <a href="profile.php" class="list-group-item list-group-item-action 
         bg-info text-center text-white">Profile</a>
         <a href="admin.php" class="list-group-item list-group-item-action 
-        bg-info text-center text-white">Administrator</a>
-        <a href="doctor.php" class="list-group-item list-group-item-action 
-        bg-info text-center text-white">Doctors</a>
+        bg-info text-center text-white">Patient</a>
         <a href="#" class="list-group-item list-group-item-action 
-        bg-info text-center text-white">Patients</a>
+        bg-info text-center text-white">Appointment</a>
+        <a href="#" class="list-group-item list-group-item-action 
+        bg-info text-center text-white">Report</a>
 
     </div>
+    <!-- End Side Navigation -->
 
 </body>
 

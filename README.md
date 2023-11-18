@@ -1,5 +1,5 @@
-admin user-id: admin
-passwd: admin
+## admin user-id: admin
+## password: admin
 
 
 # HOSPITAL MANAGEMENT SYSTEM
