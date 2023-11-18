@@ -106,12 +106,17 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
+                                            <?php
+
+                                                //Kavya video 16 13:32
+
+                                             ?>
                                             <h5 class="my-2 text white " style="font-size: 30px;">0</h5>
                                             <h5 class="text white">Total</h5>
                                             <h5 class="text white">Report</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#"><i class="fa fa-flag fa-3x my-4" style="color:white"></i></a>
+                                            <a href="patient.php"><i class="fa fa-flag fa-3x my-4" style="color:white"></i></a>
                                         </div>
 
                                     </div>
