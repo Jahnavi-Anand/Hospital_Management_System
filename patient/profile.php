@@ -36,13 +36,13 @@
 
                                     //Delete before push merge
                                     $row['profile'] = "patient.jpg";
-                                    $row['firstname'] = "patient.jpg";
-                                    $row['surname'] = "patient.jpg";
-                                    $row['username'] = "patient.jpg";
-                                    $row['email'] = "patient.jpg";
-                                    $row['phone'] = "patient.jpg";
-                                    $row['gender'] = "patient.jpg";
-                                    $row['country'] = "patient.jpg";
+                                    $row['firstname'] = "Amish";
+                                    $row['surname'] = "Tripathi";
+                                    $row['username'] = "ATri";
+                                    $row['email'] = "Amish125@gmail.com";
+                                    $row['phone'] = "998123843";
+                                    $row['gender'] = "Make";
+                                    $row['country'] = "India";
                                     //
                                 ?>
 
@@ -56,7 +56,7 @@
                                     <input type="submit" name="upload" class="btn btn-info" value="Update Profile">
                                 </form>
 
-                                <table class="table table-bordered">
+                                <table class="table table-bordered my-2">
                                     <tr>
                                         <th colspan="2" class="text-center">My Details</th>
                                     </tr>
@@ -90,7 +90,31 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <h5 class="text-center">Change Username</h5>
+                                <?php
+                                    //vid 15 20:57
+                                ?>
+                                <form method="post">
+                                    <label>Enter Username</label>
+                                    <input type="text" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
+                                    <input type="submit" name="update" class="btn btn-info my-2" value="Update Username">
+                                </form>
+
+                                <?php
+                                    //vid 15 26:05
+                                ?>
+                                <h5>Change Password</h5>
+                                <form method="post">
+                                    <label>Old Password</label>
+                                    <input type="password" name="old_pass" class="form-control" autocomplete="off" placeholder="Enter Old Password">
+                                    <label>New Password</label>
+                                    <input type="password" name="new_pass" class="form-control" autocomplete="off" placeholder="Enter New Password">
+                                    <label>Confirm Password</label>
+                                    <input type="password" name="con_pass" class="form-control" autocomplete="off" placeholder="Confirm Password">
+                                    <input type="submit" name="change" class="btn btn-info my-2" value="Change Password">
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
