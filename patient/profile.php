@@ -33,17 +33,6 @@
                             <div class="col-md-5">
                                 <?php
                                     //vid 15 11:15
-
-                                    //Delete before push merge
-                                    $row['profile'] = "patient.jpg";
-                                    $row['firstname'] = "Amish";
-                                    $row['surname'] = "Tripathi";
-                                    $row['username'] = "ATri";
-                                    $row['email'] = "Amish125@gmail.com";
-                                    $row['phone'] = "998123843";
-                                    $row['gender'] = "Make";
-                                    $row['country'] = "India";
-                                    //
                                 ?>
 
                                 <h4>My Profile</h4>
