@@ -49,7 +49,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                     $profile = $_FILES['profile']['name'];
 
                                     if (empty($profile)) {
-
+                                        echo "<h5 class= 'text-center alert alert-danger'>Upload PFP</h5>";
                                     } else {
                                         $query = "UPDATE admin SET profile='$profile' WHERE username='$ad'";
 
@@ -82,7 +82,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
 
                                     $uname = $_POST['uname'];
                                     if (empty($uname)) {
-
+                                        echo "<h5 class= 'text-center alert alert-danger'>Enter Username</h5>";
                                     } else {
                                         $query = "UPDATE admin SET username='$uname' WHERE username='$ad'";
                                         $res = mysqli_query($connect, $query);

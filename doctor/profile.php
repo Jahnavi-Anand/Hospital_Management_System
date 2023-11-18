@@ -1,5 +1,9 @@
 <?php
-// <!--1:22 php part (video 12)-->
+session_start();
+if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
+    header("Location:../doctorlogin.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 
@@ -21,25 +25,52 @@
             <div class="row">
                 <div class="col-md-2" style="margin-left: -30px;">
                     <?php
-                    include("sidenav.php");
-                    // include("../include/connection.php");
+                    include("./sidenav.php");
+                    include("../include/connection.php");
                     ?>
                 </div>
                 <div class="col-md-10">
 
-                    <!--3:10 php -->
                     <div class="container-fluid">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-6">
 
-                                    <!--11:40 php part (video 12)-->
-                                      <!-- 25:19 php part (video 12)-->
+                                <?php
+                                $doc = $_SESSION['doctor'];
+                                $query = "SELECT * FROM doctors WHERE username='$doc'";
+
+                                $res = mysqli_query($connect, $query);
+
+                                $row = mysqli_fetch_array($res);
+
+                                if(isset($_POST["upload"])){
+
+                                    $img = $_FILES['img']['name'];
+
+                                    if(empty($img)){
+
+                                    }else{
+                                        $query = "UPDATE doctors SET profile='$img' WHERE username='$doc'";
+
+                                        $res = mysqli_query($connect, $query);
+
+                                        if($res){
+                                            move_uploaded_file($_FILES['img']['tmp_name'],"img/$img");
+                                            header("Location:./profile.php");
+                                            exit();
+                                        }
+                                    }
+                                }
+                                ?>
+
                                     <form method="post" enctype="multipart/form-data">
 
-                                        <!--// 15:50 php part (video 12)-->
-                                        <!--echo "<img src='img/" . $row['docto.jpg'] . "' style='height: 250px;'>";-->
-                                        <!-- 17:44 php part (video 12)-->
+                                    <?php
+
+                                        echo "<img src='img/". $row['profile']."' style='height: 250px;' class='col-md-12 my-3'>";
+                                    ?>
+
                                           
                                         <input type="file" name="img" class="form-control my-1">
                                         <input type="submit" name="upload" class="
@@ -54,13 +85,12 @@
 
                                             <tr>
                                                 <td>Firstname</td>
-                                                <td><?php echo $row['Firstname']; ?></td>
-                                                <!--php part 21:13 (video12)-->
+                                                <td><?php echo $row['firstname']; ?></td>
 
                                             </tr>
                                             <tr>
                                                 <td>Surname</td>
-                                                <td><?php echo $row[' surname']; ?></td>
+                                                <td><?php echo $row['surname']; ?></td>
                                                 
 
                                             </tr>
@@ -96,8 +126,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Salary</td>
-                                                <td><?php echo   $row['salary']; ?></td>
-                                                <!--php part 24:08 (video12)-->
+                                                <td><?php echo  "Rs ".$row['salary'].""; ?></td>
 
                                             </tr>
 
@@ -119,7 +148,25 @@
                                     <h5 class="text-center my-2">Change username
 
                                     </h5>
-                                    <!--php part 29:12 (video12)-->
+
+                                    <?php
+                                    if(isset($_POST["change_uname"])){
+                                        $uname = $_POST['uname'];
+
+                                        if(empty($uname)){
+                                            echo "<h5 class= 'text-center alert alert-danger'>Enter Username</h5>";
+                                        }else{
+                                            $query = "UPDATE doctors SET username='$uname' WHERE username='$doc'";
+
+                                            $res = mysqli_query($connect, $query);  
+
+                                            if($res){
+                                                $_SESSION["doctor"] = $uname;
+                                                header("Location:./profile.php");
+                                            }
+                                        }
+                                    }
+                                    ?>
                                     <form method="post">
                                         <label>
                                             Change username
@@ -135,7 +182,34 @@
                                     <h5 class="text-center my-2">Change Password
 
                                     </h5>
-                                    <!--php part 31:37 (video11)-->
+
+                                    <?php
+
+                                    if(isset($_POST['change_pass'])){
+                                        $old = $_POST['old_pass'];
+                                        $new = $_POST['new_pass'];
+
+                                        $con = $_POST['con_pass'];
+
+                                        $ol= "SELECT * FROM doctors WHERE username='$doc'";
+                                        $ols = mysqli_query($connect, $ol);
+                                        $row = mysqli_fetch_array($ols);
+
+                                        if(empty($new)){
+                                            echo "<h5 class= 'text-center alert alert-danger'>Enter Password</h5>";
+                                        }else if($old != $row['password']){
+                                            echo "<h5 class= 'text-center alert alert-danger'>Old Password doesn't match</h5>";
+                                        }elseif($con != $new){
+                                            echo "<h5 class= 'text-center alert alert-danger'>Confirm Password doesn't match</h5>";
+                                        }else{
+                                            $query = "UPDATE doctors SET password='$new' WHERE username='$doc'";
+
+                                            mysqli_query($connect, $query);
+                                            header("Location:./profile.php");
+                                        }
+                                    }
+
+                                    ?>
                                     <form method="post">
                                         <div class="form-group">
                                             <label>Old Password</label>
