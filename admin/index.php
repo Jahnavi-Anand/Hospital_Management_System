@@ -101,17 +101,17 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                         <div class="col-md-8">
                                             <?php
 
-                                            $in = mysqli_query($connect, "SELECT sum(amount_paid) as profit FROM income");
+                                            // $in = mysqli_query($connect, "SELECT sum(amount_paid) as profit FROM income");
 
-                                            $row = mysqli_fetch_array($in);
+                                            // $row = mysqli_fetch_array($in);
 
-                                            $inc = $row['profit'];
+                                            // $inc = $row['profit'];
 
 
                                              ?>
                                             <h5 class="my-2 text white " style="font-size: 30px;">
                                                 <?php 
-                                                echo "$inc";
+                                                // echo "$inc";
                                                  ?>
                                             </h5>
                                             <h5 class="text white">
@@ -145,7 +145,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                              ?>
                                             <h5 class="my-2 text white " style="font-size: 30px;">
                                                 <?php 
-                                                echo $p;
+                                                // echo $p;
                                                  ?>
                                             </h5>
                                             <h5 class="text white">
@@ -209,7 +209,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                              ?>
                                             <h5 class="my-2 text white " style="font-size: 30px;">
                                                 <?php 
-                                                echo $rep;
+                                                // echo $rep;
                                                  ?>
                                             </h5>
                                             <h5 class="text white">

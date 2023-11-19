@@ -3,7 +3,6 @@ session_start();
 
 if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
     header("Location:../patientlogin.php");
-    exit();
 }
 ?>
 
@@ -42,7 +41,7 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                             <h5 class="text-white my-4">My Profile</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#">
+                                            <a href="./profile.php">
                                                 <i class="fa fa-user-circle fa-3x my-4" style="color: white;"></i>
                                             </a>
                                         </div>
@@ -83,6 +82,31 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                     </div>
 
                     <?php
+
+                    if (isset($_POST["send"])) {
+                        
+                        $title = $_POST['title'];
+                        $message =  $_POST['message'];
+
+                        if (empty($title)) {
+                            echo "<script>alert('Title empty')</script>";
+                        }else if(empty($message)){
+                            echo "<script>alert('msg empty')</script>";
+                        }else{
+
+                            $user = $_SESSION['patient'];
+
+                            $query = "INSERT INTO report(title, message, username, data_send) VALUES ('$title', '$message', '$user', NOW())";
+                            $res = mysqli_query($connect, $query);
+
+                            if ($res) {
+                                echo "<script>alert('Report Submitted Successfully')</script>";
+                            }
+                            else{
+                                echo "<script>alert('Can't Submit')</script>";
+                            }
+                        }
+                    }
                     
                         // 11:58 Vid 14
 
@@ -95,12 +119,14 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
             <div class="card bg-info my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center my-2">Send a Report</h5>
+                    <br>
                     <form method="post">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" class="form-control" placeholder="Enter Report Title" required>
-
+                        <br>
                         <label for="message">Message</label>
                         <input type="text" name="message" id="message" class="form-control" placeholder="Enter Message" required>
+                        <br>
 
                         <input type="submit" name="send" value="Send Report" class="btn btn-success my-2">
                     </form>
