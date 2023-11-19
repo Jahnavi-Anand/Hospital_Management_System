@@ -41,7 +41,7 @@
 
                                      ?>
                                      
-                                 <table class="table table-bordered">
+                                <table class="table table-bordered">
                                     <tr>
                                      <th class="text-centre" colspan="2">Details</th>
                                     </tr>
