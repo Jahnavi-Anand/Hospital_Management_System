@@ -32,9 +32,9 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
             <div class="col-md-10">
                 <div class="container-fluid">
                     <h5>Patient Dashboard</h5>
-                    <div class="col-md-12">
+                    <div class="col-md-12 my-1">
                         <div class="row">
-                            <div class="col-md-3 my-2 bg-info" style="height: 150px;">
+                            <div class="col-md-3 bg-info mx-2" style="height: 150px;">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
@@ -49,7 +49,7 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                 </div>
                             </div>
 
-                            <div class="col-md-3 my-2 bg-info" style="height: 150px;">
+                            <div class="col-md-3 bg-warning mx-2" style="height: 150px;">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
@@ -64,7 +64,7 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                 </div>
                             </div>
 
-                            <div class="col-md-3 my-2 bg-info" style="height: 150px;">
+                            <div class="col-md-3 bg-success mx-2" style="height: 150px;">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
