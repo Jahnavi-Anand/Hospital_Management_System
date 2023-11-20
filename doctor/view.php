@@ -28,6 +28,17 @@
 
                     <?php
 
+                        if (isset($_GET['id'])) {
+
+                            $id = $_GET['id'];
+
+                            $query = "SELECT * FROM patient WHERE id='$id'";
+                            $res = mysqli_query($connect,$query);
+
+                            $row = mysqli_fetch_array($res);
+                            # code...
+                        }
+
                         //Kavya video 16 19:47, 20:35
 
                      ?>
@@ -75,7 +86,7 @@
                                     </tr>
                                     <tr>
                                         <td>Date Registered</td>
-                                        <td><?php echo $row['date_registered']; ?></td>
+                                        <td><?php echo $row['date_reg']; ?></td>
                                     </tr>
                                  </table>
                             </div>
