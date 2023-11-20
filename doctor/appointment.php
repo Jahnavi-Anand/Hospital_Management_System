@@ -25,7 +25,8 @@
                 <div class="col-md-10">
                     <h5 class="text-center my-2">Total Appointment</h5>
                     <?php
-                        //vid17 26:12
+                        
+                        //vid17 26:12 
                     ?>
                 </div>
             </div>

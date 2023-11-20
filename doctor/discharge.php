@@ -23,6 +23,10 @@
                         include("sidenav.php");
                     ?>
                 </div>
+                <!-- vid17 39:25 check line 105 to 108 in file index.php -->
+                <div class="col-md-10">
+                    <h5 class="text-center my-2">Total Appointment</h5>
+                </div>
             </div>
         </div>
     </div>
