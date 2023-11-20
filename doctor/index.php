@@ -108,9 +108,6 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                                     // $app = mysqli_query($connect, "SELECT * FROM appointment");
                                                     // $appoint = mysqli_num_rows($app);
                                                 ?>
-                                                <h5 class="text-white ">
-                                                    0
-                                                </h5>
                                                 <h5 class="text-white my-2 " style="font-size:30px;">
                                                     <?php 
                                                     // echo $appoint; 
