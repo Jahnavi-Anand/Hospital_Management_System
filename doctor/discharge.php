@@ -75,6 +75,17 @@
                             </div>
                             <div class="col-md-6">
                                 <h5 class="text-center my-1">Invoice</h5>
+                                <?php
+                                    //vid17 54:26
+                                ?>
+                                <form method="post">
+                                    <label>Fee</label>
+                                    <input type="number" name="fee" class="form-control" autocomplete="off" placeholder="Enter Patient Fee">
+
+                                    <label>Description</label>
+                                    <input type="text" name="des" class="form-control" autocomplete="off" placeholder="Enter Description">
+                                    <input type="submit" name="send" class="btn btn-info my-2" value="Send">
+                                </form>
                             </div>
                         </div>
                     </div>
