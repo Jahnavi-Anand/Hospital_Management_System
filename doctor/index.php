@@ -69,22 +69,25 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-8">
-                                                <h5 class="text-white ">
-                                                    0
-                                                </h5>
-                                                <h5 class="text-white my-2 " style="font-size:30px;">
+                                                <?php
+                                                    $p = mysqli_query($connect,"SELECT * FROM patient");
 
+                                                    $pp = mysqli_num_rows($p);
+                                                ?>
+                                                <h5 class="text-white my-2 " style="font-size:30px;">
+                                                    <?php echo $pp; ?>
+                                                </h5>
+                                                <h5 class="text-white ">
+                                                    Total
                                                 </h5>
                                                 <h5 class="text-white ">
                                                     Patient
                                                 </h5>
-                                                <h5 class="text-white ">
-                                                    My Profile
-                                                </h5>
+                                                
 
                                             </div>
                                             <div class="col-md-4">
-                                                <a href="patient.php"><i class="fa fa-procedures fa-3x my-4" style="color:white;">
+                                                <a href="./patient.php"><i class="fa fa-procedures fa-3x my-4" style="color:white;">
 
                                                     </i></a>
 
@@ -101,11 +104,17 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-8">
+                                                <?php
+                                                    // $app = mysqli_query($connect, "SELECT * FROM appointment");
+                                                    // $appoint = mysqli_num_rows($app);
+                                                ?>
                                                 <h5 class="text-white ">
                                                     0
                                                 </h5>
                                                 <h5 class="text-white my-2 " style="font-size:30px;">
-                                                <?php echo $pp; ?>
+                                                    <?php 
+                                                    // echo $appoint; 
+                                                    ?>
                                                 </h5>
                                                 <h5 class="text-white ">
                                                     Total
@@ -116,7 +125,7 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
 
                                             </div>
                                             <div class="col-md-4">
-                                                <a href="#"><i class="fa fa-calender fa-3x my-4" style="color:white;">
+                                                <a href="appointment.php"><i class="fa fa-calender fa-3x my-4" style="color:white;">
 
                                                     </i></a>
 

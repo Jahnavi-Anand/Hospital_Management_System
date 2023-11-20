@@ -56,7 +56,7 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                             <h5 class="text-white my-4">Book Appointment</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#">
+                                            <a href="appointment.php">
                                                 <i class="fa fa-calendar fa-3x my-4" style="color: white;"></i>
                                             </a>
                                         </div>
@@ -71,7 +71,7 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                             <h5 class="text-white my-4">My Invoice</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#">
+                                            <a href="invoice.php">
                                                 <i class="fas fa-file-invoice-rupee fa-3x my-4" style="color: white;">&#8377;</i>
                                             </a>
                                         </div>
