@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +27,7 @@
                     <h5 class="text-center my-2">My Invoice</h5>
 
                     <?php
-                        //vid17
+                        //vid17 1:08:45
                     ?>
                 </div>
             </div>
