@@ -10,8 +10,8 @@
 </head>
 <body>
     <?php
-        include("../inlcude/header.php")
-        include("../include/connection.php")
+        include("../inlcude/header.php");
+        include("../include/connection.php");
     ?>
 
     <div class="container-fluid">
