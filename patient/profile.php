@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
+        header("Location:../patientlogin.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +23,15 @@
             <div class="row">
                 <div class="col-md-2" style="margin-left: -30px;">
                     <?php
-                        include("sidenave.php");
+                        include("./sidenav.php");
+
+                        $patient = $_SESSION['patient'];
+                        $query = "SELECT * FROM patient WHERE username='$patient'";
+
+                        $res = mysqli_query($connect, $query);
+
+                        $row = mysqli_fetch_array($res);
+
 
                         //vid 15 8:12
                     ?>
@@ -30,8 +41,27 @@
                 <div class="col-md-10">
                     <div class="col-md-12">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <?php
+
+                                    if(isset($_POST["upload"])){
+
+                                        $img = $_FILES['img']['name'];
+
+                                        if(empty($img)){
+
+                                        }else{
+                                            $query = "UPDATE patient SET profile='$img' WHERE username='$patient'";
+
+                                            $res = mysqli_query($connect, $query);
+
+                                            if($res){
+                                                move_uploaded_file($_FILES['img']['tmp_name'],"img/$img");
+                                                header("Location:./profile.php");
+                                                exit();
+                                            }
+                                        }
+}
                                     //vid 15 11:15
                                 ?>
 
@@ -82,15 +112,55 @@
                             <div class="col-md-6">
                                 <h5 class="text-center">Change Username</h5>
                                 <?php
+                                if(isset($_POST["uname_update"])){
+                                    $uname = $_POST['uname'];
+
+                                    if(empty($uname)){
+                                        echo "<h5 class= 'text-center alert alert-danger'>Enter Username</h5>";
+                                    }else{
+                                        $query = "UPDATE patient SET username='$uname' WHERE username='$patient'";
+
+                                        $res = mysqli_query($connect, $query);  
+
+                                        if($res){
+                                            $_SESSION["patient"] = $uname;
+                                            // header("Location:./profile.php");
+                                        }
+                                    }
+                                }
                                     //vid 15 20:57
                                 ?>
                                 <form method="post">
                                     <label>Enter Username</label>
                                     <input type="text" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
-                                    <input type="submit" name="update" class="btn btn-info my-2" value="Update Username">
+                                    <input type="submit" name="uname_update" class="btn btn-info my-2" value="Update Username">
                                 </form>
 
                                 <?php
+                                if(isset($_POST['change'])){
+                                    $old = $_POST['old_pass'];
+                                    $new = $_POST['new_pass'];
+
+                                    $con = $_POST['con_pass'];
+
+                                    $ol= "SELECT * FROM patient WHERE username='$patient'";
+                                    $ols = mysqli_query($connect, $ol);
+                                    $row = mysqli_fetch_array($ols);
+
+                                    if(empty($new)){
+                                        echo "<h5 class= 'text-center alert alert-danger'>Enter Password</h5>";
+                                    }else if($old != $row['password']){
+                                        echo "<h5 class= 'text-center alert alert-danger'>Old Password doesn't match</h5>";
+                                    }elseif($con != $new){
+                                        echo "<h5 class= 'text-center alert alert-danger'>Confirm Password doesn't match</h5>";
+                                    }else{
+                                        $query = "UPDATE patient SET password='$new' WHERE username='$patient'";
+
+                                        mysqli_query($connect, $query);
+                                        echo "<script>alert('password updated successfully');</script>";
+                                        // header("Location:./profile.php");
+                                    }
+                                }
                                     //vid 15 26:05
                                 ?>
                                 <h5>Change Password</h5>
