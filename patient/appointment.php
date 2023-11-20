@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-2" style="margin-left: -30px;">
                     <?php
-                        include("sidenav.php");
+                        include("./sidenav.php");
                     ?>
                 </div>
                 <div class="col-md-10">

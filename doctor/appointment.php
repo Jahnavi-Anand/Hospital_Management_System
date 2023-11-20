@@ -11,7 +11,7 @@
 <body>
     <?php
         include("../include/header.php");
-        include("../include/header.php");
+        include("../include/connection.php");
     ?>
 
     <div class="container-fluid">

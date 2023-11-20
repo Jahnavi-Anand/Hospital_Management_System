@@ -18,7 +18,7 @@
                 <div class="col-md-2" style="margin-left:-30px;">
                     <?php
 
-                    include("sidenave.php");
+                    include("./sidenave.php");
 
                      ?>
                 </div>
@@ -27,7 +27,40 @@
 
                     <?php
 
+                        $query = "SELECT * FROM income";
 
+                        $res = mysqli_query($connect,$query);
+
+                        $output = "";
+                        $output .= "
+                            <table calss='table table-bordered'>
+                            <td>ID</td>
+                            <td>Doctor</td>
+                            <td>Patient</td>
+                            <td>Discharge Date</td>
+                            <td>Bill</td>
+                        ";
+
+                        if(mysqli_fetch_array($res)<1){
+                            $output .="
+                                <tr>
+                                <td class='test-center' colspan='4'>No Patient Discharge Yet</td>
+                                </tr>
+                            ";
+                        }
+
+                        while ($row = mysqli_fetch_array($res)) {
+                            $output .= "
+                                <tr>
+                                <td>".$row['id']."</td>
+                                <td>".$row['doctor']."</td>
+                                <td>".$row['patient']."</td>
+                                <td>".$row['date_discharge']."</td>
+                                <td>".$row['amount_paid']."</td>
+                            ";
+                        }
+
+                        $output .= "</tr></table>";
                         //Kavya video 16 54:30
 
                      ?>
