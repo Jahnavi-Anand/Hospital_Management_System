@@ -1,14 +1,16 @@
 <?php
-    session_start();
-    if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
-        header("Location:../adminlogin.php");
-        exit();
-    }
- ?>
+session_start();
+if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
+    header("Location:../adminlogin.php");
+    exit();
+}
+?>
 <html>
+
 <head>
     <title>Total Patient</title>
 </head>
+
 <body>
 
     <?php
@@ -16,7 +18,7 @@
     include("../include/header.php");
     include("../include/connection.php");
 
-     ?>
+    ?>
 
     <div class="container-fluid">
         <div class="col-md-12">
@@ -25,7 +27,7 @@
                     <?php
                     include("./sidenave.php");
 
-                     ?>
+                    ?>
                 </div>
                 <div class='col-md-10'>
                     <h5 class='text-centre my-3'>Total Patient</h5>
@@ -33,7 +35,7 @@
                     <?php
                     $query = "SELECT * FROM patient";
 
-                    $res = mysqli_query($connect,$query);
+                    $res = mysqli_query($connect, $query);
 
                     $output = "";
                     $output .= "
@@ -51,29 +53,28 @@
                         </tr>
                     ";
 
-                    if (mysqli_num_rows($res)<1) {
+                    if (mysqli_num_rows($res) < 1) {
                         $output .= "
                             <tr>
                             <td class='text-center' colspan='10'> No Patient Yet</td>
                             </tr>
                         ";
-                        # code...
                     }
 
                     while ($row = mysqli_fetch_array($res)) {
                         $output .= "
                             <tr>
-                                <td>".$row['id']."</td>
-                                <td>".$row['firstname']."</td>
-                                <td>".$row['surname']."</td>
-                                <td>".$row['username']."</td>
-                                <td>".$row['email']."</td>
-                                <td>".$row['phone']."</td>
-                                <td>".$row['gender']."</td>
-                                <td>".$row['country']."</td>
-                                <td>".$row['date_reg']."</td>
+                                <td>" . $row['id'] . "</td>
+                                <td>" . $row['firstname'] . "</td>
+                                <td>" . $row['surname'] . "</td>
+                                <td>" . $row['username'] . "</td>
+                                <td>" . $row['email'] . "</td>
+                                <td>" . $row['phone'] . "</td>
+                                <td>" . $row['gender'] . "</td>
+                                <td>" . $row['country'] . "</td>
+                                <td>" . $row['date_reg'] . "</td>
                                 <td>
-                                    <a href='./view.php?id=".$row['id']."'>
+                                    <a href='./view.php?id=" . $row['id'] . "'>
                                         <button class='btn btn-info'>View</button>
                                     </a>
                                 </td>
@@ -85,12 +86,12 @@
                     ";
 
                     echo $output;
-                        //Kavya video 16 3:49, 15:31
-
-                     ?>
+                    
+                    ?>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

@@ -1,40 +1,42 @@
 <?php
- session_start();
- if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
+session_start();
+if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
     header("Location:../adminlogin.php");
     exit();
 }
- ?>
+?>
 <html>
+
 <head>
     <title></title>
 </head>
+
 <body>
-<?php
+    <?php
 
-include("../include/header.php");
-include("../include/connection.php");
- ?>
+    include("../include/header.php");
+    include("../include/connection.php");
+    ?>
 
- <div class="container-fluid">
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-2" style="margin-left:-30px;">
-                <?php
+    <div class="container-fluid">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-2" style="margin-left:-30px;">
+                    <?php
                     include("./sidenave.php");
-                 ?>
-            </div>
-            <div class="col-md-10">
-                <h5 class="text-center my-2">Total Report</h5>
-                <?php
+                    ?>
+                </div>
+                <div class="col-md-10">
+                    <h5 class="text-center my-2">Total Report</h5>
+                    <?php
 
-                $query = "SELECT * FROM report";
+                    $query = "SELECT * FROM report";
 
-                $res = mysqli_query($connect,$query);
+                    $res = mysqli_query($connect, $query);
 
-                $output = "";
+                    $output = "";
 
-                $output .= "
+                    $output .= "
                     <table class='table table-bordered'>
                     <tr>
                     <td>ID</td>
@@ -45,39 +47,37 @@ include("../include/connection.php");
                     </tr>
                 ";
 
-                if (mysqli_num_rows($res)<1) {
-                    $output .= "
+                    if (mysqli_num_rows($res) < 1) {
+                        $output .= "
                         <tr>
                         <td class='test-center' colspan='6'>No Report Yet</td>
                         </tr>
                     ";
-                    # code...
-                }
+                    }
 
-                while($row = mysqli_fetch_array($res)){
-                    $output .= "
+                    while ($row = mysqli_fetch_array($res)) {
+                        $output .= "
                         <tr>
-                        <td>".$row['id']."</td>
-                        <td>".$row['title']."</td>
-                        <td>".$row['message']."</td>
-                        <td>".$row['username']."</td>
-                        <td>".$row['data_send']."</td>
+                        <td>" . $row['id'] . "</td>
+                        <td>" . $row['title'] . "</td>
+                        <td>" . $row['message'] . "</td>
+                        <td>" . $row['username'] . "</td>
+                        <td>" . $row['data_send'] . "</td>
                     ";
-                }
+                    }
 
-                $output .= "
+                    $output .= "
                     </tr>
                         </table>
                 ";
 
-                echo $output;
-                    // Kavya video 16 36:40
+                    echo $output;
 
-                    
-                 ?>
+                    ?>
+                </div>
             </div>
         </div>
     </div>
- </div>
 </body>
+
 </html>

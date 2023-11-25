@@ -90,15 +90,8 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 $q = "UPDATE doctors SET salary='$salary' WHERE id='$id'";
 
                                 $result = mysqli_query($connect, $q);
-                                // if($result){
-                                //     unset($row);
-                                //     unset($$_POST['update']);
-                                //     header("Location:./edit.php");
-                                //     exit();
-                                // }
                             
                             }
-                            // Vid 10 1:09:06
                             
                             ?>
                             <form method="post">

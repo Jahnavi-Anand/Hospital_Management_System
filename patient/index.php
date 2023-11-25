@@ -70,20 +70,29 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
-                                        <?php
-                                            // $app = mysqli_query($connect, "SELECT * FROM income WHERE patient=".$_SESSION['patient']."");
-                                            // $appoint = mysqli_num_rows($app);
-                                        ?>
-                                        <h5 class="text-white my-2 " style="font-size:30px;">
-                                            <?php 
-                                            // echo $appoint; 
+                                            <?php
+                                            $pat = $_SESSION['patient'];
+
+                                            $query = "SELECT * FROM patient WHERE username='$pat'";
+                                            $res = mysqli_query($connect, $query);
+                        
+                                            $row = mysqli_fetch_array($res);
+                                            $fname = $row['firstname'];
+
+                                            $app = mysqli_query($connect, "SELECT * FROM income WHERE patient='$fname'");
+                                            $appoint = mysqli_num_rows($app);
                                             ?>
-                                        </h5>
+                                            <h5 class="text-white my-2 " style="font-size:30px;">
+                                                <?php
+                                                echo $appoint; 
+                                                ?>
+                                            </h5>
                                             <h5 class="text-white my-4">My Invoice</h5>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="./invoice.php">
-                                                <i class="fas fa-file-invoice-rupee fa-3x my-4" style="color: white;">&#8377;</i>
+                                                <i class="fas fa-file-invoice-rupee fa-3x my-4"
+                                                    style="color: white;">&#8377;</i>
                                             </a>
                                         </div>
                                     </div>
@@ -95,15 +104,15 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                     <?php
 
                     if (isset($_POST["send"])) {
-                        
+
                         $title = $_POST['title'];
-                        $message =  $_POST['message'];
+                        $message = $_POST['message'];
 
                         if (empty($title)) {
                             echo "<script>alert('Title empty')</script>";
-                        }else if(empty($message)){
+                        } else if (empty($message)) {
                             echo "<script>alert('msg empty')</script>";
-                        }else{
+                        } else {
 
                             $user = $_SESSION['patient'];
 
@@ -112,18 +121,15 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
 
                             if ($res) {
                                 echo "<script>alert('Report Submitted Successfully')</script>";
-                            }
-                            else{
+                            } else {
                                 echo "<script>alert('Can't Submit')</script>";
                             }
                         }
                     }
                     
-                        // 11:58 Vid 14
-
                     ?>
 
-                        <div class="col-md-12">
+                    <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
@@ -133,13 +139,16 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                         <br>
                                         <form method="post">
                                             <label for="title">Title</label>
-                                            <input type="text" name="title" id="title" class="form-control" placeholder="Enter Report Title" required>
+                                            <input type="text" name="title" id="title" class="form-control"
+                                                placeholder="Enter Report Title" required>
                                             <br>
                                             <label for="message">Message</label>
-                                            <input type="text" name="message" id="message" class="form-control" placeholder="Enter Message" required>
+                                            <input type="text" name="message" id="message" class="form-control"
+                                                placeholder="Enter Message" required>
                                             <br>
 
-                                            <input type="submit" name="send" value="Send Report" class="btn btn-success my-2">
+                                            <input type="submit" name="send" value="Send Report"
+                                                class="btn btn-success my-2">
                                         </form>
                                     </div>
                                 </div>
