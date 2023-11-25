@@ -7,10 +7,13 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
 ?>
 
 <!DOCTYPE html>
+
 <html>
 
 <head>
+
     <title>Patient Dashboard</title>
+
 </head>
 
 <body>
@@ -28,18 +31,12 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
             </div>
             <div class="col-md-10">
                 <div class="container-fluid">
+                    <br>
                     <h5>Patient Dashboard</h5>
-                    <div class="col-md-12">
+                    <br>
+                    <div class="col-md-12 my-1">
                         <div class="row">
-                            <?php
-                            // Adjusted spacing for each container
-                            $containerClass1 = "col-md-3 my-2 bg-info";
-                            $containerClass2 = "col-md-3 my-2 bg-warning mx-2";
-                            $containerClass3 = "col-md-3 my-2 bg-success mx-2";
-                            $iconClass = "fa-3x my-2";
-                            ?>
-
-                            <div class="<?= $containerClass1 ?>" style="height: 150px; background-color: cyan;">
+                            <div class="col-md-3 bg-info mx-2" style="height: 150px;">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
@@ -47,72 +44,76 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                         </div>
                                         <div class="col-md-4">
                                             <a href="./profile.php">
-                                                <i class="fa fa-user-circle <?= $iconClass ?>" style="color: white;"></i>
+                                                <i class="fa fa-user-circle fa-3x my-4" style="color: white;"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="<?= $containerClass2 ?>" style="height: 150px; background-color: red;">
+                            <div class="col-md-3 bg-warning mx-2" style="height: 150px;">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h5 class="text-white my-4">Book Appointment</h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="appointment.php">
+                                                <i class="fa fa-calendar fa-3x my-4" style="color: white;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 bg-success mx-2" style="height: 150px;">
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <?php
-                                            $patients = mysqli_query($connect, "SELECT * FROM patient");
-                                            $totalPatients = mysqli_num_rows($patients);
+                                            $pat = $_SESSION['patient'];
+
+                                            $query = "SELECT * FROM patient WHERE username='$pat'";
+                                            $res = mysqli_query($connect, $query);
+                        
+                                            $row = mysqli_fetch_array($res);
+                                            $fname = $row['firstname'];
+
+                                            $app = mysqli_query($connect, "SELECT * FROM income WHERE patient='$fname'");
+                                            $appoint = mysqli_num_rows($app);
                                             ?>
-                                            <h5 class="text-white"><?= $totalPatients ?></h5>
-                                            <h5 class="text-white my-2" style="font-size:30px;"></h5>
-                                            <h5 class="text-white">Patients</h5>
-                                            <h5 class="text-white">My Profile</h5>
+                                            <h5 class="text-white my-2 " style="font-size:30px;">
+                                                <?php
+                                                echo $appoint; 
+                                                ?>
+                                            </h5>
+                                            <h5 class="text-white my-4">My Invoice</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="patient.php">
-                                                <i class="fa fa-procedures <?= $iconClass ?>" style="color: white;"></i>
+                                            <a href="./invoice.php">
+                                                <i class="fas fa-file-invoice-rupee fa-3x my-4"
+                                                    style="color: white;">&#8377;</i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="<?= $containerClass3 ?>" style="height: 150px; background-color: green;">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <?php
-                                            $appointments = mysqli_query($connect, "SELECT * FROM appointment");
-                                            $totalAppointments = mysqli_num_rows($appointments);
-                                            ?>
-                                            <h5 class="text-white"><?= $totalAppointments ?></h5>
-                                            <h5 class="text-white my-2" style="font-size:30px;"><?= $totalAppointments ?></h5>
-                                            <h5 class="text-white">Total</h5>
-                                            <h5 class="text-white">Appointment</h5>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <a href="#">
-                                                <!-- Replace the link with the appropriate link for appointment -->
-                                                <i class="fa fa-calendar <?= $iconClass ?>" style="color: white;"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
                     <?php
-                    // Your existing form handling code
+
                     if (isset($_POST["send"])) {
+
                         $title = $_POST['title'];
                         $message = $_POST['message'];
 
                         if (empty($title)) {
                             echo "<script>alert('Title empty')</script>";
-                        } elseif (empty($message)) {
+                        } else if (empty($message)) {
                             echo "<script>alert('msg empty')</script>";
                         } else {
+
                             $user = $_SESSION['patient'];
 
                             $query = "INSERT INTO report(title, message, username, data_send) VALUES ('$title', '$message', '$user', NOW())";
@@ -125,6 +126,7 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                             }
                         }
                     }
+                    
                     ?>
 
                     <div class="col-md-12">
@@ -137,13 +139,16 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                         <br>
                                         <form method="post">
                                             <label for="title">Title</label>
-                                            <input type="text" name="title" id="title" class="form-control" placeholder="Enter Report Title" required>
+                                            <input type="text" name="title" id="title" class="form-control"
+                                                placeholder="Enter Report Title" required>
                                             <br>
                                             <label for="message">Message</label>
-                                            <input type="text" name="message" id="message" class="form-control" placeholder="Enter Message" required>
+                                            <input type="text" name="message" id="message" class="form-control"
+                                                placeholder="Enter Message" required>
                                             <br>
 
-                                            <input type="submit" name="send" value="Send Report" class="btn btn-success my-2">
+                                            <input type="submit" name="send" value="Send Report"
+                                                class="btn btn-success my-2">
                                         </form>
                                     </div>
                                 </div>
@@ -151,10 +156,16 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                             <div class="col-md-3"></div>
                         </div>
                     </div>
+
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </body>
 
 </html>
