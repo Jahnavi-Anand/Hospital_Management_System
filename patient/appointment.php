@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
+        header("Location:../patientlogin.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
