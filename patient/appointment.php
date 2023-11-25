@@ -27,6 +27,35 @@
                     <h5 class="text-center my-2">Book Appointment</h5>
 
                     <?php
+
+                        $pat = $_SESSION['patient'];
+                        $rel = mysqli_query($connect,"SELECT * FROM patient WHERE username='$pat'");
+
+                        $row = mysqli_fetch_array($rel);
+
+                        $firstname = $row['firstname'];
+                        $surname = $row['surname'];
+                        $gender = $row['gender'];
+                        $phone = $row['phone'];
+
+                        if (isset($_POST['book'])) {
+
+                            $date = $_POST['date'];
+                            $sym = $_POST['sym'];
+
+                            if (empty($sym)) {
+                                # code...
+                            }else{
+                                $query = "INSERT INTO appointment(firstname,surname,gender,phone,appointment_date,symptoms,status,date_booked) VALUES('$firstname','$surname','$gender','$phone','$date','$sym','Pending',NOW())";
+
+                                $res = mysqli_query($connect,$query);
+
+                                if($res){
+                                    echo "<script>alert('Appointment booked');</script>";
+                                }
+                            }
+                            # code...
+                        }
                         //vid 17 12:12
                     ?>
 

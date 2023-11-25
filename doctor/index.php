@@ -86,12 +86,12 @@ if (!isset($_SESSION["doctor"]) && $_SESSION["doctor"] == false) {
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <?php
-                                                    // $app = mysqli_query($connect, "SELECT * FROM appointment");
-                                                    // $appoint = mysqli_num_rows($app);
+                                                    $app = mysqli_query($connect, "SELECT * FROM appointment WHERE status='Pending'");
+                                                    $appoint = mysqli_num_rows($app);
                                                 ?>
                                                 <h5 class="text-white my-2 " style="font-size:30px;">
                                                     <?php 
-                                                    // echo $appoint; 
+                                                    echo $appoint; 
                                                     ?>
                                                 </h5>
                                                 <h5 class="text-white ">

@@ -33,7 +33,7 @@
 
                         $output = "";
                         $output .= "
-                            <table calss='table table-bordered'>
+                            <table class='table table-bordered'>
                             <td>ID</td>
                             <td>Doctor</td>
                             <td>Patient</td>
@@ -62,7 +62,7 @@
 
                         $output .= "</tr></table>";
                         //Kavya video 16 54:30
-
+                        echo $output;
                      ?>
                 </div>
             </div>

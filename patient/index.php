@@ -31,7 +31,9 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
             </div>
             <div class="col-md-10">
                 <div class="container-fluid">
+                    <br>
                     <h5>Patient Dashboard</h5>
+                    <br>
                     <div class="col-md-12 my-1">
                         <div class="row">
                             <div class="col-md-3 bg-info mx-2" style="height: 150px;">
@@ -68,10 +70,19 @@ if (!isset($_SESSION["patient"]) || $_SESSION["patient"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
+                                        <?php
+                                            // $app = mysqli_query($connect, "SELECT * FROM income WHERE patient=".$_SESSION['patient']."");
+                                            // $appoint = mysqli_num_rows($app);
+                                        ?>
+                                        <h5 class="text-white my-2 " style="font-size:30px;">
+                                            <?php 
+                                            // echo $appoint; 
+                                            ?>
+                                        </h5>
                                             <h5 class="text-white my-4">My Invoice</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="invoice.php">
+                                            <a href="./invoice.php">
                                                 <i class="fas fa-file-invoice-rupee fa-3x my-4" style="color: white;">&#8377;</i>
                                             </a>
                                         </div>

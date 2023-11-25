@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-2" style="margin-left: -30px;">
                     <?php
-                        include("sidenav.php");
+                        include("./sidenav.php");
                     ?>
                 </div>
                 <!-- vid17 39:25 check line 105 to 108 in file index.php -->
@@ -76,6 +76,31 @@
                             <div class="col-md-6">
                                 <h5 class="text-center my-1">Invoice</h5>
                                 <?php
+
+                                    if(isset($_POST['send'])){
+                                        $fee = $_POST['fee'];
+                                        $des = $_POST['des'];
+
+                                        if(empty($fee)){
+
+                                        }else if(empty($des)){
+
+                                        }else{
+
+                                            $doc = $_SESSION['doctor'];
+                                            $fname= $row['firstname'];
+
+                                            $query = "INSERT INTO income(doctor, patient, date_discharge, amount_paid, discription) VALUES('$doc','$fname',NOW(),'$fee','$des')";
+
+                                            $res = mysqli_query($connect,$query);
+
+                                            if($res){
+                                                echo "<script>alert('You have sent Invoice')</script>";
+
+                                                mysqli_query($connect,"UPDATE appointment SET status='Discharge' WHERE id='$id'");
+                                            }
+                                        }
+                                    }
                                     //vid17 54:26
                                 ?>
                                 <form method="post">

@@ -60,11 +60,11 @@
                                     </tr>
                                     <tr>
                                         <td>Amount Paid</td>
-                                        <td><?php echo $row['amount_paid']; ?></td>
+                                        <td>Rs.<?php echo $row['amount_paid']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Description</td>
-                                        <td><?php echo $row['description']; ?></td>
+                                        <td><?php echo $row['discription']; ?></td>
                                     </tr>
                                 </table>
                             </div>
