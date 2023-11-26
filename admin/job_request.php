@@ -38,7 +38,6 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
 
     <script type="text/javascript">
         $(document).ready(function () {
-            alert("DONE");
 
             show();
 

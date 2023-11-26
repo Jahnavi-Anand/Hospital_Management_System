@@ -14,7 +14,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
 
 <body>
     <?php
-    
+
     include("../include/header.php");
     include("../include/connection.php");
 
@@ -44,9 +44,9 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                             ?>
 
                                             <h5 class="my-2 text white " style="font-size: 30px;">
-                                                <?php 
+                                                <?php
                                                 echo $num;
-                                                 ?>
+                                                ?>
                                             </h5>
                                             <h5 class="text white">
                                                 Total
@@ -99,20 +99,17 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
+
                                             <?php
+                                            $p = mysqli_query($connect, "SELECT * FROM patient");
 
-                                            $in = mysqli_query($connect, "SELECT sum(amount_paid) as profit FROM income");
+                                            $pp = mysqli_num_rows($p);
+                                            ?>
 
-                                            $row = mysqli_fetch_array($in);
-
-                                            $inc = $row['profit'];
-
-
-                                             ?>
                                             <h5 class="my-2 text white " style="font-size: 30px;">
-                                                <?php 
-                                                echo "$inc";
-                                                 ?>
+                                                <?php
+                                                echo "$pp";
+                                                ?>
                                             </h5>
                                             <h5 class="text white">
                                                 Total
@@ -122,7 +119,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                             </h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="income.php"><i class="fa fa-procedures fa-3x my-4"
+                                            <a href="./patient.php"><i class="fa fa-procedures fa-3x my-4"
                                                     style="color:white"></i></a>
                                         </div>
 
@@ -135,18 +132,18 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
+
                                             <?php
 
+                                            $re = mysqli_query($connect, "SELECT * FROM report");
+                                            $rep = mysqli_num_rows($re);
 
-                                                //Kavya video 16 13:32
-                                                // Kavya video 16 31:00 in doctor>index.php
+                                            ?>
 
-
-                                             ?>
                                             <h5 class="my-2 text white " style="font-size: 30px;">
-                                                <?php 
-                                                echo $p;
-                                                 ?>
+                                                <?php
+                                                echo $rep;
+                                                ?>
                                             </h5>
                                             <h5 class="text white">
                                                 Total
@@ -156,7 +153,8 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                             </h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="patient.php"><i class="fa fa-flag fa-3x my-4" style="color:white"></i></a>
+                                            <a href="./report.php"><i class="fa fa-flag fa-3x my-4"
+                                                    style="color:white"></i></a>
                                         </div>
 
                                     </div>
@@ -203,14 +201,18 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                         <div class="col-md-8">
                                             <?php
 
-                                                // Kavya video 16 44:45
+                                            $in = mysqli_query($connect, "SELECT sum(amount_paid) as profit FROM income");
+
+                                            $row = mysqli_fetch_array($in);
+
+                                            $inc = $row['profit'];
 
 
-                                             ?>
+                                            ?>
                                             <h5 class="my-2 text white " style="font-size: 30px;">
-                                                <?php 
-                                                echo $rep;
-                                                 ?>
+                                                <?php
+                                                echo $inc;
+                                                ?>
                                             </h5>
                                             <h5 class="text white">
                                                 Total
@@ -220,7 +222,7 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                             </h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="report.php"><i class="fa fa-money-check-alt fa-3x my-4"
+                                            <a href="./income.php"><i class="fa fa-money-check-alt fa-3x my-4"
                                                     style="color:white"></i></a>
                                         </div>
 
