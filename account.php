@@ -59,7 +59,6 @@ if (isset($error["ac"])) {
 } else {
     $show = "";
 }
-//timestamp: 22:35 in vid 13
 ?>
 
 <!DOCTYPE html>

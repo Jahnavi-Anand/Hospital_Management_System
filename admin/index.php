@@ -14,9 +14,10 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
 
 <body>
     <?php
-    include("../include/header.php");
 
+    include("../include/header.php");
     include("../include/connection.php");
+
     ?>
     <div class="container-fluid">
         <div class="col-md-12">
@@ -43,10 +44,16 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                             ?>
 
                                             <h5 class="my-2 text white " style="font-size: 30px;">
-                                                <?php echo $num ?>
+                                                <?php
+                                                echo $num;
+                                                ?>
                                             </h5>
-                                            <h5 class="text white">Total</h5>
-                                            <h5 class="text white">Admin</h5>
+                                            <h5 class="text white">
+                                                Total
+                                            </h5>
+                                            <h5 class="text white">
+                                                Admin
+                                            </h5>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="admin.php"><i class="fa fa-users-cog fa-3x my-4"
@@ -72,8 +79,12 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                                 echo $num2;
                                                 ?>
                                             </h5>
-                                            <h5 class="text white">Total</h5>
-                                            <h5 class="text white">Doctors</h5>
+                                            <h5 class="text white">
+                                                Total
+                                            </h5>
+                                            <h5 class="text white">
+                                                Doctors
+                                            </h5>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="doctor.php"><i class="fa fa-user-md fa-3x my-4"
@@ -88,12 +99,27 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <h5 class="my-2 text white " style="font-size: 30px;">0</h5>
-                                            <h5 class="text white">Total</h5>
-                                            <h5 class="text white">Patient</h5>
+
+                                            <?php
+                                            $p = mysqli_query($connect, "SELECT * FROM patient");
+
+                                            $pp = mysqli_num_rows($p);
+                                            ?>
+
+                                            <h5 class="my-2 text white " style="font-size: 30px;">
+                                                <?php
+                                                echo "$pp";
+                                                ?>
+                                            </h5>
+                                            <h5 class="text white">
+                                                Total
+                                            </h5>
+                                            <h5 class="text white">
+                                                Patient
+                                            </h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#"><i class="fa fa-procedures fa-3x my-4"
+                                            <a href="./patient.php"><i class="fa fa-procedures fa-3x my-4"
                                                     style="color:white"></i></a>
                                         </div>
 
@@ -106,14 +132,18 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
+
                                             <?php
 
-                                                //Kavya video 16 13:32
-                                                // Kavya video 16 31:00 in doctor>index.php
+                                            $re = mysqli_query($connect, "SELECT * FROM report");
+                                            $rep = mysqli_num_rows($re);
 
-                                             ?>
+                                            ?>
+
                                             <h5 class="my-2 text white " style="font-size: 30px;">
-                                            <?php echo $p; ?>
+                                                <?php
+                                                echo $rep;
+                                                ?>
                                             </h5>
                                             <h5 class="text white">
                                                 Total
@@ -123,7 +153,8 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                             </h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="patient.php"><i class="fa fa-flag fa-3x my-4" style="color:white"></i></a>
+                                            <a href="./report.php"><i class="fa fa-flag fa-3x my-4"
+                                                    style="color:white"></i></a>
                                         </div>
 
                                     </div>
@@ -145,8 +176,12 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                                 echo $num1;
                                                 ?>
                                             </h5>
-                                            <h5 class="text white">Total</h5>
-                                            <h5 class="text white">Job Request</h5>
+                                            <h5 class="text white">
+                                                Total
+                                            </h5>
+                                            <h5 class="text white">
+                                                Job Request
+                                            </h5>
                                         </div>
                                         <div class="col-md-4">
                                             <a href="job_request.php"><i class="fa fa-book-open fa-3x my-4"
@@ -164,12 +199,30 @@ if (!isset($_SESSION["admin"]) && $_SESSION["admin"] == false) {
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <h5 class="my-2 text white " style="font-size: 30px;">0</h5>
-                                            <h5 class="text white">Total</h5>
-                                            <h5 class="text white">Income</h5>
+                                            <?php
+
+                                            $in = mysqli_query($connect, "SELECT sum(amount_paid) as profit FROM income");
+
+                                            $row = mysqli_fetch_array($in);
+
+                                            $inc = $row['profit'];
+
+
+                                            ?>
+                                            <h5 class="my-2 text white " style="font-size: 30px;">
+                                                <?php
+                                                echo $inc;
+                                                ?>
+                                            </h5>
+                                            <h5 class="text white">
+                                                Total
+                                            </h5>
+                                            <h5 class="text white">
+                                                Income
+                                            </h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#"><i class="fa fa-money-check-alt fa-3x my-4"
+                                            <a href="./income.php"><i class="fa fa-money-check-alt fa-3x my-4"
                                                     style="color:white"></i></a>
                                         </div>
 
