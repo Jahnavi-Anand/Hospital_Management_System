@@ -95,4 +95,27 @@ Key Features and Components:
    - The admin panel now includes a robust report generation feature, allowing administrators to generate comprehensive reports on various aspects, such as patient statistics, staff performance, and overall hospital operations.
    - This aids in data-driven decision-making and facilitates the continuous improvement of healthcare services.
 
+## 14. Appointment Booking:
+   - Patients can now schedule appointments with healthcare professionals through the system.
+   - The appointment booking feature allows patients to choose their preferred date and time for a consultation.
+   - Healthcare providers can view and manage their appointment schedules through the system.
+
+## 15. Invoice Generation:
+   - The system incorporates an invoice generation feature for services provided to patients.
+   - After a consultation or medical procedure, an invoice is generated detailing the services rendered, medication prescribed, and associated costs.
+   - Patients can view and download invoices through their accounts.
+
+## 16. Report Delivery:
+   - The system includes a feature for generating and delivering medical reports to patients.
+   - Once a medical report is available, patients receive notifications and can access their reports securely through their accounts.
+   - Reports can be downloaded, printed, or shared with other healthcare providers as needed.
+
+## 17. Prescription History:
+   - Patients have access to a prescription history feature, which displays a record of medications prescribed during previous consultations.
+   - This helps patients keep track of their medical history and medications.
+
+## 22. Mobile Access:
+   - The system is optimized for mobile access, allowing patients to use the features seamlessly on smartphones and tablets.
+
+
 The Hospital Management System (HMS) project aims to enhance the overall efficiency of healthcare institutions, making it easier for hospital administrators and staff to provide quality patient care and streamline administrative tasks. This web-based system ensures that healthcare professionals can focus on what matters most – the health and well-being of their patients.
