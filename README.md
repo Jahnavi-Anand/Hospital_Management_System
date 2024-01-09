@@ -2,7 +2,7 @@
 ## password: admin
 
 
-# HOSPITAL MANAGEMENT SYSTEM
+# HOSPITAL MANAGEMENT SYSTEM [https://drive.google.com/drive/folders/1a3LEbUXc7pEX_ND2Vh-0hP986j6gPW8W?usp=drive_link]
 The Hospital Management System (HMS) is a comprehensive web-based application designed to streamline and enhance the management of healthcare institutions. Built using PHP as the server-side scripting language, MySQL as the database management system, HTML for content structure, CSS for styling, and JavaScript for interactivity, this project is aimed at simplifying various administrative tasks, ensuring efficient patient care, and facilitating seamless communication between healthcare professionals.
 
 Key Features and Components:
